@@ -1,0 +1,1249 @@
+
+   WARN  Metadata found in doc-comment for method Tests\Unit\Services\FeeCalculationServiceTest::it_calculates_basic_fees_correctly(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Unit\Services\FeeCalculationServiceTest::it_calculates_penalty_fees_correctly(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\DashboardControllerTest::admin_can_get_dashboard_stats(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\DashboardControllerTest::admin_can_get_recent_activities(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\DashboardControllerTest::admin_can_get_revenue_stats(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\DashboardControllerTest::regular_user_cannot_access_dashboard(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_retrieve_all_notifications(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_create_a_notification(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_retrieve_a_specific_notification(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_update_a_notification_status(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_retrieve_notifications_for_an_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::admin_can_create_a_notification_for_an_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\NotificationControllerTest::agent_can_view_but_not_send_notifications(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_retrieve_all_owners(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_create_an_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_retrieve_a_specific_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_update_an_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_delete_an_owner_without_vehicles(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_cannot_delete_an_owner_with_vehicles(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\OwnerControllerTest::admin_can_retrieve_vehicles_for_an_owner(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_retrieve_all_payments(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_create_a_payment(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_retrieve_a_specific_payment(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_retrieve_receipt_for_a_payment(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_retrieve_payments_for_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\PaymentControllerTest::admin_can_create_a_payment_for_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_retrieve_all_procedures(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_create_a_procedure(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_retrieve_a_specific_procedure(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_update_a_procedure(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::agent_can_only_view_procedures(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_retrieve_procedures_for_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\ProcedureControllerTest::admin_can_create_a_procedure_for_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_retrieve_all_users(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_create_a_user(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_retrieve_a_specific_user(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_update_a_user(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_delete_a_user(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_cannot_delete_themselves(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::agent_cannot_manage_users(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_search_users_by_name_or_email(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::user_can_change_their_own_password(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\UserControllerTest::admin_can_reset_user_password(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_retrieve_all_vehicles(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_create_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_retrieve_a_specific_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_update_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_delete_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   WARN  Metadata found in doc-comment for method Tests\Feature\Controllers\VehicleControllerTest::admin_can_calculate_storage_fee_for_a_vehicle(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                    0.01s  
+
+   FAIL  Tests\Unit\Services\FeeCalculationServiceTest
+  ⨯ it calculates basic fees correctly                                   1.10s  
+  ⨯ it calculates penalty fees correctly                                 0.06s  
+
+   FAIL  Tests\Feature\Controllers\DashboardControllerTest
+  ⨯ admin can get dashboard stats
+  ⨯ admin can get recent activities
+  ⨯ admin can get revenue stats
+  ⨯ regular user cannot access dashboard
+
+   FAIL  Tests\Feature\Controllers\NotificationControllerTest
+  ⨯ admin can retrieve all notifications                                 0.22s  
+  ⨯ admin can create a notification                                      0.08s  
+  ⨯ admin can retrieve a specific notification                           0.12s  
+  ⨯ admin can update a notification status                               0.10s  
+  ⨯ admin can retrieve notifications for an owner                        0.10s  
+  ⨯ admin can create a notification for an owner                         0.07s  
+  ⨯ agent can view but not send notifications                            0.08s  
+
+   FAIL  Tests\Feature\Controllers\OwnerControllerTest
+  ✓ admin can retrieve all owners                                        0.15s  
+  ⨯ admin can create an owner                                            0.14s  
+  ⨯ admin can retrieve a specific owner                                  0.07s  
+  ⨯ admin can update an owner                                            0.17s  
+  ✓ admin can delete an owner without vehicles                           0.15s  
+  ✓ admin cannot delete an owner with vehicles                           0.16s  
+  ✓ admin can retrieve vehicles for an owner                             0.15s  
+
+   FAIL  Tests\Feature\Controllers\PaymentControllerTest
+  ✓ admin can retrieve all payments                                      0.22s  
+  ⨯ admin can create a payment                                           0.13s  
+  ✓ admin can retrieve a specific payment                                0.14s  
+  ⨯ admin can retrieve receipt for a payment                             0.11s  
+  ⨯ admin can retrieve payments for a vehicle                            0.07s  
+  ⨯ admin can create a payment for a vehicle                             0.08s  
+
+   FAIL  Tests\Feature\Controllers\ProcedureControllerTest
+  ⨯ admin can retrieve all procedures                                    0.14s  
+  ⨯ admin can create a procedure                                         0.11s  
+  ⨯ admin can retrieve a specific procedure                              0.10s  
+  ⨯ admin can update a procedure                                         0.07s  
+  ⨯ agent can only view procedures                                       0.07s  
+  ⨯ admin can retrieve procedures for a vehicle                          0.05s  
+  ⨯ admin can create a procedure for a vehicle                           0.06s  
+
+   FAIL  Tests\Feature\Controllers\UserControllerTest
+  ⨯ admin can retrieve all users                                         0.10s  
+  ⨯ admin can create a user                                              0.08s  
+  ⨯ admin can retrieve a specific user                                   0.07s  
+  ⨯ admin can update a user                                              0.07s  
+  ⨯ admin can delete a user                                              0.06s  
+  ⨯ admin cannot delete themselves                                       0.06s  
+  ⨯ agent cannot manage users                                            0.05s  
+  ⨯ admin can search users by name or email                              0.04s  
+  ⨯ user can change their own password                                   0.06s  
+  ⨯ admin can reset user password                                        0.09s  
+
+   FAIL  Tests\Feature\Controllers\VehicleControllerTest
+  ✓ admin can retrieve all vehicles                                      0.12s  
+  ⨯ admin can create a vehicle                                           0.07s  
+  ✓ admin can retrieve a specific vehicle                                0.08s  
+  ✓ admin can update a vehicle                                           0.08s  
+  ✓ admin can delete a vehicle                                           0.09s  
+  ⨯ admin can calculate storage fee for a vehicle                        0.06s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                        0.10s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Unit\Services\FeeCalculationServiceTest > i…  QueryException   
+  SQLSTATE[HY000]: General error: 1 no such table: settings (Connection: sqlite, SQL: insert into "settings" ("key", "value", "description", "group", "is_public", "updated_at", "created_at") values (daily_storage_fee, "{\"amount\":2000}", Frais journaliers de gardiennage (FCFA), fees, 1, 2025-08-24 01:55:15, 2025-08-24 01:55:15))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Unit\Services\FeeCalculationServiceTest > i…  QueryException   
+  SQLSTATE[HY000]: General error: 1 no such table: settings (Connection: sqlite, SQL: insert into "settings" ("key", "value", "description", "group", "is_public", "updated_at", "created_at") values (daily_storage_fee, "{\"amount\":2000}", Frais journaliers de gardiennage (FCFA), fees, 1, 2025-08-24 01:55:16, 2025-08-24 01:55:16))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\DashboardControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, sale, completed, 87101, 2, 1, 2025-08-24 01:55:17, 2025-08-24 01:55:17))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\DashboardControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, cancelled, 457403, 2, 1, 2025-08-24 01:55:17, 2025-08-24 01:55:17))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\DashboardControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, in_progress, 335446, 2, 1, 2025-08-24 01:55:17, 2025-08-24 01:55:17))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\DashboardControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, release, completed, 469517, 2, 1, 2025-08-24 01:55:17, 2025-08-24 01:55:17))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+Error: Call to undefined method App\Http\Controllers\NotificationController::middleware() in C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\app\Http\Controllers\NotificationController.php:20
+Stack trace:
+#0 [internal function]: App\Http\Controllers\NotificationController->__construct()
+#1 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(1205): ReflectionClass->newInstanceArgs()
+#2 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(971): Illuminate\Container\Container->build()
+#3 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1077): Illuminate\Container\Container->resolve()
+#4 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(902): Illuminate\Foundation\Application->resolve()
+#5 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1057): Illuminate\Container\Container->make()
+#6 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(286): Illuminate\Foundation\Application->make()
+#7 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(266): Illuminate\Routing\Route->getController()
+#8 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#9 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#10 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#11 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#12 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#13 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#14 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle()
+#15 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#16 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#17 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#18 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->then()
+#19 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#20 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#21 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then()
+#22 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#23 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#24 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#25 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#26 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#27 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#28 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#29 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#30 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#31 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#32 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#33 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#34 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#35 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#36 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#37 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#39 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#40 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#41 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#43 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#44 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#45 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#46 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#47 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#48 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#49 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call()
+#50 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(381): Illuminate\Foundation\Testing\TestCase->json()
+#51 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\tests\Feature\Controllers\NotificationControllerTest.php(60): Illuminate\Foundation\Testing\TestCase->getJson()
+#52 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(1656): Tests\Feature\Controllers\NotificationControllerTest->admin_can_retrieve_all_notifications()
+#53 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(514): PHPUnit\Framework\TestCase->runTest()
+#54 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#55 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(361): PHPUnit\Framework\TestRunner->run()
+#56 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#57 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#58 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#59 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#60 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#61 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run()
+#62 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle()
+#63 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(192): {closure}()
+#64 {main}
+
+----------------------------------------------------------------------------------
+
+Call to undefined method App\Http\Controllers\NotificationController::middleware()
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:62
+     58▕         
+     59▕         $response = $this->actingAs($this->admin)
+     60▕                          ->getJson('/api/notifications');
+     61▕         
+  ➜  62▕         $response->assertStatus(200)
+     63▕                  ->assertJsonStructure([
+     64▕                      'data',
+     65▕                      'links',
+     66▕                      'meta'
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [201] but received 405.
+Failed asserting that 405 is identical to 201.
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:87
+     83▕         
+     84▕         $response = $this->actingAs($this->admin)
+     85▕                          ->postJson('/api/notifications', $notificationData);
+     86▕         
+  ➜  87▕         $response->assertStatus(201)
+     88▕                  ->assertJsonStructure([
+     89▕                      'data' => [
+     90▕                          'id',
+     91▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+Error: Call to undefined method App\Http\Controllers\NotificationController::middleware() in C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\app\Http\Controllers\NotificationController.php:20
+Stack trace:
+#0 [internal function]: App\Http\Controllers\NotificationController->__construct()
+#1 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(1205): ReflectionClass->newInstanceArgs()
+#2 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(971): Illuminate\Container\Container->build()
+#3 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1077): Illuminate\Container\Container->resolve()
+#4 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(902): Illuminate\Foundation\Application->resolve()
+#5 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1057): Illuminate\Container\Container->make()
+#6 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(286): Illuminate\Foundation\Application->make()
+#7 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(266): Illuminate\Routing\Route->getController()
+#8 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#9 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#10 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#11 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#12 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#13 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#14 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle()
+#15 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#16 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#17 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#18 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->then()
+#19 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#20 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#21 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then()
+#22 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#23 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#24 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#25 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#26 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#27 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#28 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#29 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#30 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#31 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#32 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#33 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#34 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#35 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#36 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#37 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#39 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#40 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#41 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#43 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#44 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#45 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#46 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#47 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#48 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#49 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call()
+#50 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(381): Illuminate\Foundation\Testing\TestCase->json()
+#51 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\tests\Feature\Controllers\NotificationControllerTest.php(121): Illuminate\Foundation\Testing\TestCase->getJson()
+#52 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(1656): Tests\Feature\Controllers\NotificationControllerTest->admin_can_retrieve_a_specific_notification()
+#53 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(514): PHPUnit\Framework\TestCase->runTest()
+#54 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#55 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(361): PHPUnit\Framework\TestRunner->run()
+#56 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#57 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#58 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#59 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#60 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#61 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run()
+#62 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle()
+#63 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(192): {closure}()
+#64 {main}
+
+----------------------------------------------------------------------------------
+
+Call to undefined method App\Http\Controllers\NotificationController::middleware()
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:123
+    119▕         
+    120▕         $response = $this->actingAs($this->admin)
+    121▕                          ->getJson("/api/notifications/{$notification->id}");
+    122▕         
+  ➜ 123▕         $response->assertStatus(200)
+    124▕                  ->assertJson([
+    125▕                      'data' => [
+    126▕                          'id' => $notification->id,
+    127▕                          'reference' => $notification->reference,
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [200] but received 405.
+Failed asserting that 405 is identical to 200.
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:149
+    145▕         
+    146▕         $response = $this->actingAs($this->admin)
+    147▕                          ->putJson("/api/notifications/{$notification->id}", $updateData);
+    148▕         
+  ➜ 149▕         $response->assertStatus(200)
+    150▕                  ->assertJson([
+    151▕                      'data' => [
+    152▕                          'id' => $notification->id,
+    153▕                          'status' => NotificationStatus::SENT->value
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:175
+    171▕         
+    172▕         $response = $this->actingAs($this->admin)
+    173▕                          ->getJson("/api/owners/{$this->owner->id}/notifications");
+    174▕         
+  ➜ 175▕         $response->assertStatus(200)
+    176▕                  ->assertJsonStructure([
+    177▕                      'data' => [
+    178▕                          '*' => [
+    179▕                              'id',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > admin can…    
+  Expected response status code [201] but received 404.
+Failed asserting that 404 is identical to 201.
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:207
+    203▕         
+    204▕         $response = $this->actingAs($this->admin)
+    205▕                          ->postJson("/api/owners/{$this->owner->id}/notifications", $notificationData);
+    206▕         
+  ➜ 207▕         $response->assertStatus(201)
+    208▕                  ->assertJsonStructure([
+    209▕                      'data' => [
+    210▕                          'id',
+    211▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\NotificationControllerTest > agent can…    
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+Error: Call to undefined method App\Http\Controllers\NotificationController::middleware() in C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\app\Http\Controllers\NotificationController.php:20
+Stack trace:
+#0 [internal function]: App\Http\Controllers\NotificationController->__construct()
+#1 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(1205): ReflectionClass->newInstanceArgs()
+#2 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(971): Illuminate\Container\Container->build()
+#3 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1077): Illuminate\Container\Container->resolve()
+#4 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(902): Illuminate\Foundation\Application->resolve()
+#5 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1057): Illuminate\Container\Container->make()
+#6 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(286): Illuminate\Foundation\Application->make()
+#7 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(266): Illuminate\Routing\Route->getController()
+#8 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#9 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#10 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#11 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#12 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#13 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#14 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle()
+#15 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#16 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#17 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#18 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->then()
+#19 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#20 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#21 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then()
+#22 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#23 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#24 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#25 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#26 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#27 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#28 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#29 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#30 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#31 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#32 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#33 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#34 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#35 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#36 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#37 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#39 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#40 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#41 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#43 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#44 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#45 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#46 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#47 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#48 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#49 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call()
+#50 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(381): Illuminate\Foundation\Testing\TestCase->json()
+#51 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\tests\Feature\Controllers\NotificationControllerTest.php(240): Illuminate\Foundation\Testing\TestCase->getJson()
+#52 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(1656): Tests\Feature\Controllers\NotificationControllerTest->agent_can_view_but_not_send_notifications()
+#53 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(514): PHPUnit\Framework\TestCase->runTest()
+#54 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#55 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(361): PHPUnit\Framework\TestRunner->run()
+#56 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#57 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#58 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#59 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#60 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#61 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run()
+#62 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle()
+#63 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(192): {closure}()
+#64 {main}
+
+----------------------------------------------------------------------------------
+
+Call to undefined method App\Http\Controllers\NotificationController::middleware()
+
+  at tests\Feature\Controllers\NotificationControllerTest.php:242
+    238▕         
+    239▕         $response = $this->actingAs($this->agent)
+    240▕                          ->getJson("/api/notifications/{$notification->id}");
+    241▕         
+  ➜ 242▕         $response->assertStatus(200);
+    243▕         
+    244▕         // Mais ne peut pas créer une notification
+    245▕         $notificationData = [
+    246▕             'owner_id' => $this->owner->id,
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\OwnerControllerTest > admin can create…    
+  Expected response status code [201] but received 422.
+Failed asserting that 422 is identical to 201.
+
+The following errors occurred during the last request:
+
+{
+    "message": "The first name field is required. (and 2 more errors)",
+    "errors": {
+        "first_name": [
+            "The first name field is required."
+        ],
+        "last_name": [
+            "The last name field is required."
+        ],
+        "phone_number": [
+            "The phone number field is required."
+        ]
+    }
+}
+
+  at tests\Feature\Controllers\OwnerControllerTest.php:62
+     58▕         
+     59▕         $response = $this->actingAs($this->user)
+     60▕                          ->postJson('/api/owners', $ownerData);
+     61▕         
+  ➜  62▕         $response->assertStatus(201)
+     63▕                  ->assertJsonStructure([
+     64▕                      'data' => [
+     65▕                          'id',
+     66▕                          'name',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\OwnerControllerTest > admin can retriev…   
+  Unable to find JSON: 
+
+[{
+    "data": {
+        "id": 1,
+        "name": null,
+        "id_number": "IRIFH5PNK365"
+    }
+}]
+
+within response JSON:
+
+[{
+    "data": {
+        "id": 1,
+        "first_name": "Nath",
+        "last_name": "Lefort",
+        "phone": "+33 5 42 63 42 54",
+        "email": "xcamus@example.com",
+        "address": "44, rue de Alexandre\n68961 Verdier-sur-Boyer",
+        "id_number": "IRIFH5PNK365",
+        "id_type": "passport",
+        "created_at": "2025-08-24T01:55:19.000000Z",
+        "updated_at": "2025-08-24T01:55:19.000000Z"
+    }
+}].
+
+
+Failed asserting that an array has the subset Array &0 [
+    'data' => Array &1 [
+        'id' => 1,
+        'name' => null,
+        'id_number' => 'IRIFH5PNK365',
+    ],
+].
+--- Expected
++++ Actual
+@@ @@
+     'id_type' => 'passport',
+     'created_at' => '2025-08-24T01:55:19.000000Z',
+     'updated_at' => '2025-08-24T01:55:19.000000Z',
+-    'name' => NULL,
+   ),
+ )
+
+  at tests\Feature\Controllers\OwnerControllerTest.php:93
+     89▕         $response = $this->actingAs($this->user)
+     90▕                          ->getJson("/api/owners/{$owner->id}");
+     91▕         
+     92▕         $response->assertStatus(200)
+  ➜  93▕                  ->assertJson([
+     94▕                      'data' => [
+     95▕                          'id' => $owner->id,
+     96▕                          'name' => $owner->name,
+     97▕                          'id_number' => $owner->id_number
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\OwnerControllerTest > admin can update…    
+  Unable to find JSON: 
+
+[{
+    "data": {
+        "id": 1,
+        "name": "Jane Smith",
+        "phone": "+22998765432",
+        "address": "456 Market Street, Cotonou"
+    }
+}]
+
+within response JSON:
+
+[{
+    "data": {
+        "id": 1,
+        "first_name": "Marcelle",
+        "last_name": "Peron",
+        "phone": "+33 2 23 90 78 00",
+        "email": "brocher@example.org",
+        "address": "456 Market Street, Cotonou",
+        "id_number": "G1ZNSMGCNQF",
+        "id_type": "cni",
+        "created_at": "2025-08-24T01:55:19.000000Z",
+        "updated_at": "2025-08-24T01:55:19.000000Z"
+    }
+}].
+
+
+Failed asserting that an array has the subset Array &0 [
+    'data' => Array &1 [
+        'id' => 1,
+        'name' => 'Jane Smith',
+        'phone' => '+22998765432',
+        'address' => '456 Market Street, Cotonou',
+    ],
+].
+--- Expected
++++ Actual
+@@ @@
+     'id' => 1,
+     'first_name' => 'Marcelle',
+     'last_name' => 'Peron',
+-    'phone' => '+22998765432',
++    'phone' => '+33 2 23 90 78 00',
+     'email' => 'brocher@example.org',
+     'address' => '456 Market Street, Cotonou',
+     'id_number' => 'G1ZNSMGCNQF',
+@@ @@
+     'id_type' => 'cni',
+     'created_at' => '2025-08-24T01:55:19.000000Z',
+     'updated_at' => '2025-08-24T01:55:19.000000Z',
+-    'name' => 'Jane Smith',
+   ),
+ )
+
+  at tests\Feature\Controllers\OwnerControllerTest.php:117
+    113▕         $response = $this->actingAs($this->user)
+    114▕                          ->putJson("/api/owners/{$owner->id}", $updatedData);
+    115▕         
+    116▕         $response->assertStatus(200)
+  ➜ 117▕                  ->assertJson([
+    118▕                      'data' => [
+    119▕                          'id' => $owner->id,
+    120▕                          'name' => 'Jane Smith',
+    121▕                          'phone' => '+22998765432',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\PaymentControllerTest > admin can creat…   
+  Expected response status code [201] but received 422.
+Failed asserting that 422 is identical to 201.
+
+The following errors occurred during the last request:
+
+{
+    "message": "The procedure id field is required.",
+    "errors": {
+        "procedure_id": [
+            "The procedure id field is required."
+        ]
+    }
+}
+
+  at tests\Feature\Controllers\PaymentControllerTest.php:74
+     70▕         
+     71▕         $response = $this->actingAs($this->user)
+     72▕                          ->postJson('/api/payments', $paymentData);
+     73▕         
+  ➜  74▕         $response->assertStatus(201)
+     75▕                  ->assertJsonStructure([
+     76▕                      'data' => [
+     77▕                          'id',
+     78▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\PaymentControllerTest >…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table payments has no column named status (Connection: sqlite, SQL: insert into "payments" ("vehicle_id", "owner_id", "amount", "payment_method", "payment_date", "reference", "description", "receipt_url", "user_id", "status", "updated_at", "created_at") values (1, 2, 420367, mobile_money, 2025-07-29 03:37:25, PAY-451237, Molestiae laborum quo a velit qui alias in., http://www.sauvage.com/quaerat-quod-blanditiis-tempore-dolor-architecto, 1, completed, 2025-08-24 01:55:20, 2025-08-24 01:55:20))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\PaymentControllerTest > admin can retri…   
+  Failed asserting that an array has the key 'payment_type'.
+
+  at tests\Feature\Controllers\PaymentControllerTest.php:160
+    156▕         $response = $this->actingAs($this->user)
+    157▕                          ->getJson("/api/vehicles/{$this->vehicle->id}/payments");
+    158▕         
+    159▕         $response->assertStatus(200)
+  ➜ 160▕                  ->assertJsonStructure([
+    161▕                      'data' => [
+    162▕                          '*' => [
+    163▕                              'id',
+    164▕                              'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\PaymentControllerTest > admin can creat…   
+  Expected response status code [201] but received 422.
+Failed asserting that 422 is identical to 201.
+
+The following errors occurred during the last request:
+
+{
+    "message": "The selected payment type is invalid.",
+    "errors": {
+        "payment_type": [
+            "The selected payment type is invalid."
+        ]
+    }
+}
+
+  at tests\Feature\Controllers\PaymentControllerTest.php:190
+    186▕         
+    187▕         $response = $this->actingAs($this->user)
+    188▕                          ->postJson("/api/vehicles/{$this->vehicle->id}/payments", $paymentData);
+    189▕         
+  ➜ 190▕         $response->assertStatus(201)
+    191▕                  ->assertJsonStructure([
+    192▕                      'data' => [
+    193▕                          'id',
+    194▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, completed, 129677, 3, 1, 2025-08-24 01:55:20, 2025-08-24 01:55:20))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest > admin can cre…   
+  Expected response status code [201] but received 500.
+Failed asserting that 500 is identical to 201.
+
+The following exception occurred during the last request:
+
+Error: Call to undefined method App\Http\Controllers\ProcedureController::middleware() in C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\app\Http\Controllers\ProcedureController.php:26
+Stack trace:
+#0 [internal function]: App\Http\Controllers\ProcedureController->__construct()
+#1 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(1205): ReflectionClass->newInstanceArgs()
+#2 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(971): Illuminate\Container\Container->build()
+#3 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1077): Illuminate\Container\Container->resolve()
+#4 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(902): Illuminate\Foundation\Application->resolve()
+#5 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(1057): Illuminate\Container\Container->make()
+#6 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(286): Illuminate\Foundation\Application->make()
+#7 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(266): Illuminate\Routing\Route->getController()
+#8 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#9 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#10 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#11 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#12 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#13 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#14 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle()
+#15 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#16 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#17 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#18 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->then()
+#19 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#20 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#21 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then()
+#22 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#23 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#24 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#25 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#26 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#27 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#28 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#29 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#30 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#31 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#32 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#33 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#34 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#35 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#36 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#37 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#39 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#40 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#41 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#43 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#44 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#45 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#46 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#47 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#48 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#49 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(573): Illuminate\Foundation\Testing\TestCase->call()
+#50 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(411): Illuminate\Foundation\Testing\TestCase->json()
+#51 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\tests\Feature\Controllers\ProcedureControllerTest.php(86): Illuminate\Foundation\Testing\TestCase->postJson()
+#52 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(1656): Tests\Feature\Controllers\ProcedureControllerTest->admin_can_create_a_procedure()
+#53 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(514): PHPUnit\Framework\TestCase->runTest()
+#54 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#55 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestCase.php(361): PHPUnit\Framework\TestRunner->run()
+#56 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#57 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#58 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#59 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#60 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#61 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run()
+#62 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle()
+#63 C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\vendor\pestphp\pest\bin\pest(192): {closure}()
+#64 {main}
+
+----------------------------------------------------------------------------------
+
+Call to undefined method App\Http\Controllers\ProcedureController::middleware()
+
+  at tests\Feature\Controllers\ProcedureControllerTest.php:88
+     84▕         
+     85▕         $response = $this->actingAs($this->admin)
+     86▕                          ->postJson('/api/procedures', $procedureData);
+     87▕         
+  ➜  88▕         $response->assertStatus(201)
+     89▕                  ->assertJsonStructure([
+     90▕                      'data' => [
+     91▕                          'id',
+     92▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, in_progress, 239616, 3, 1, 2025-08-24 01:55:20, 2025-08-24 01:55:20))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, release, pending, 386769, 3, 1, 2025-08-24 01:55:20, 2025-08-24 01:55:20))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, completed, 326671, 3, 1, 2025-08-24 01:55:21, 2025-08-24 01:55:21))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest…  QueryException   
+  SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, sale, cancelled, 315639, 3, 1, 2025-08-24 01:55:21, 2025-08-24 01:55:21))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+    560▕             if ($this->pretending()) {
+    561▕                 return true;
+    562▕             }
+    563▕ 
+  ➜ 564▕             $statement = $this->getPdo()->prepare($query);
+    565▕ 
+    566▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    567▕ 
+    568▕             $this->recordsHaveBeenModified();
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\ProcedureControllerTest > admin can cre…   
+  Expected response status code [201] but received 404.
+Failed asserting that 404 is identical to 201.
+
+  at tests\Feature\Controllers\ProcedureControllerTest.php:238
+    234▕         
+    235▕         $response = $this->actingAs($this->admin)
+    236▕                          ->postJson("/api/vehicles/{$this->vehicle->id}/procedures", $procedureData);
+    237▕         
+  ➜ 238▕         $response->assertStatus(201)
+    239▕                  ->assertJsonStructure([
+    240▕                      'data' => [
+    241▕                          'id',
+    242▕                          'reference',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can retrieve…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:45
+     41▕         
+     42▕         $response = $this->actingAs($this->admin)
+     43▕                          ->getJson('/api/users');
+     44▕         
+  ➜  45▕         $response->assertStatus(200)
+     46▕                  ->assertJsonStructure([
+     47▕                      'data',
+     48▕                      'links',
+     49▕                      'meta'
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can create a…   
+  Expected response status code [201] but received 404.
+Failed asserting that 404 is identical to 201.
+
+  at tests\Feature\Controllers\UserControllerTest.php:71
+     67▕         
+     68▕         $response = $this->actingAs($this->admin)
+     69▕                          ->postJson('/api/users', $userData);
+     70▕         
+  ➜  71▕         $response->assertStatus(201)
+     72▕                  ->assertJsonStructure([
+     73▕                      'data' => [
+     74▕                          'id',
+     75▕                          'name',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can retrieve…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:97
+     93▕     {
+     94▕         $response = $this->actingAs($this->admin)
+     95▕                          ->getJson("/api/users/{$this->agent->id}");
+     96▕         
+  ➜  97▕         $response->assertStatus(200)
+     98▕                  ->assertJson([
+     99▕                      'data' => [
+    100▕                          'id' => $this->agent->id,
+    101▕                          'name' => $this->agent->name,
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can update a…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:120
+    116▕         
+    117▕         $response = $this->actingAs($this->admin)
+    118▕                          ->putJson("/api/users/{$this->agent->id}", $updateData);
+    119▕         
+  ➜ 120▕         $response->assertStatus(200)
+    121▕                  ->assertJson([
+    122▕                      'data' => [
+    123▕                          'id' => $this->agent->id,
+    124▕                          'name' => 'Updated Agent Name',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can delete a…   
+  Expected response status code [204] but received 404.
+Failed asserting that 404 is identical to 204.
+
+  at tests\Feature\Controllers\UserControllerTest.php:145
+    141▕         
+    142▕         $response = $this->actingAs($this->admin)
+    143▕                          ->deleteJson("/api/users/{$user->id}");
+    144▕         
+  ➜ 145▕         $response->assertStatus(204);
+    146▕         
+    147▕         $this->assertDatabaseMissing('users', [
+    148▕             'id' => $user->id
+    149▕         ]);
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin cannot delet…   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at tests\Feature\Controllers\UserControllerTest.php:158
+    154▕     {
+    155▕         $response = $this->actingAs($this->admin)
+    156▕                          ->deleteJson("/api/users/{$this->admin->id}");
+    157▕         
+  ➜ 158▕         $response->assertStatus(403);
+    159▕         
+    160▕         $this->assertDatabaseHas('users', [
+    161▕             'id' => $this->admin->id
+    162▕         ]);
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > agent cannot manag…   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at tests\Feature\Controllers\UserControllerTest.php:180
+    176▕         
+    177▕         $response = $this->actingAs($this->agent)
+    178▕                          ->postJson('/api/users', $userData);
+    179▕         
+  ➜ 180▕         $response->assertStatus(403);
+    181▕         
+    182▕         // L'agent ne peut pas modifier un utilisateur
+    183▕         $updateData = [
+    184▕             'name' => 'Unauthorized Update'
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can search u…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:211
+    207▕         // Rechercher par nom
+    208▕         $response = $this->actingAs($this->admin)
+    209▕                          ->getJson('/api/users?search=Jean');
+    210▕         
+  ➜ 211▕         $response->assertStatus(200);
+    212▕         $this->assertEquals(2, count($response->json('data')));
+    213▕         
+    214▕         // Rechercher par email
+    215▕         $response = $this->actingAs($this->admin)
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > user can change th…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:234
+    230▕         
+    231▕         $response = $this->actingAs($this->agent)
+    232▕                          ->postJson('/api/users/change-password', $passwordData);
+    233▕         
+  ➜ 234▕         $response->assertStatus(200)
+    235▕                  ->assertJson([
+    236▕                      'message' => 'Password changed successfully'
+    237▕                  ]);
+    238▕
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\UserControllerTest > admin can reset us…   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Controllers\UserControllerTest.php:259
+    255▕         
+    256▕         $response = $this->actingAs($this->admin)
+    257▕                          ->postJson("/api/users/{$this->agent->id}/reset-password", $resetData);
+    258▕         
+  ➜ 259▕         $response->assertStatus(200)
+    260▕                  ->assertJson([
+    261▕                      'message' => 'Password reset successfully'
+    262▕                  ]);
+    263▕
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\VehicleControllerTest > admin can creat…   
+  Failed asserting that an array has the key 'owner'.
+
+  at tests\Feature\Controllers\VehicleControllerTest.php:72
+     68▕         $response = $this->actingAs($this->user)
+     69▕                          ->postJson('/api/vehicles', $vehicleData);
+     70▕         
+     71▕         $response->assertStatus(201)
+  ➜  72▕                  ->assertJsonStructure([
+     73▕                      'data' => [
+     74▕                          'id',
+     75▕                          'license_plate',
+     76▕                          'make',
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\Controllers\VehicleControllerTest > admin can calcu…   
+  Failed asserting that 5.080119649930555 matches expected 5.
+
+  at tests\Feature\Controllers\VehicleControllerTest.php:186
+    182▕                      ]
+    183▕                  ]);
+    184▕         
+    185▕         // Vérifier que le nombre de jours est correct (5 jours)
+  ➜ 186▕         $this->assertEquals(5, $response->json('data.days_impounded'));
+    187▕     }
+    188▕ }
+    189▕
+
+  1   tests\Feature\Controllers\VehicleControllerTest.php:186
+
+
+  Tests:    39 failed, 12 passed (102 assertions)
+  Duration: 8.17s
+

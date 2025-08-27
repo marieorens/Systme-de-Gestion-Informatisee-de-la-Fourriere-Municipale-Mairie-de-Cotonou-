@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="C:\Users\hp\Desktop\cotonou-municipal-garage-system\backend-laravel\phpunit.xml" tests="7" assertions="1" errors="12" failures="27" skipped="0" time="1.564272">
+    <testsuite name="Unit" tests="3" assertions="1" errors="2" failures="0" skipped="0" time="1.564272">
+      <testsuite name="Tests\Unit\ExampleTest" file="Example (Tests\Unit\Example)" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.017652">
+        <testcase name="That true is true" file="Example (Tests\Unit\Example)::That true is true" class="Tests\Unit\ExampleTest" classname="Tests.Unit.ExampleTest" assertions="1" time="0.017652"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Services\FeeCalculationServiceTest" file="Fee Calculation Service (Tests\Unit\Services\FeeCalculationService)" tests="2" assertions="0" errors="2" failures="0" skipped="0" time="1.546620">
+        <testcase name="It calculates basic fees correctly" file="Fee Calculation Service (Tests\Unit\Services\FeeCalculationService)::It calculates basic fees correctly" class="Tests\Unit\Services\FeeCalculationServiceTest" classname="Tests.Unit.Services.FeeCalculationServiceTest" assertions="0" time="1.466532">
+          <error type="Illuminate\Database\QueryException">It calculates basic fees correctlyIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: settings (Connection: sqlite, SQL: insert into "settings" ("key", "value", "description", "group", "is_public", "updated_at", "created_at") values (daily_storage_fee, "{\"amount\":2000}", Frais journaliers de gardiennage (FCFA), fees, 1, 2025-08-24 01:56:16, 2025-08-24 01:56:16))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1204
+at vendor\laravel\framework\src\Illuminate\Support\helpers.php:399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1203
+at vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2525
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2541
+at tests\Unit\Services\FeeCalculationServiceTest.php:29
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 no such table: settings
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1204
+at vendor\laravel\framework\src\Illuminate\Support\helpers.php:399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1203
+at vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2525
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2541
+at tests\Unit\Services\FeeCalculationServiceTest.php:29</error>
+        </testcase>
+        <testcase name="It calculates penalty fees correctly" file="Fee Calculation Service (Tests\Unit\Services\FeeCalculationService)::It calculates penalty fees correctly" class="Tests\Unit\Services\FeeCalculationServiceTest" classname="Tests.Unit.Services.FeeCalculationServiceTest" assertions="0" time="0.080088">
+          <error type="Illuminate\Database\QueryException">It calculates penalty fees correctlyIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: settings (Connection: sqlite, SQL: insert into "settings" ("key", "value", "description", "group", "is_public", "updated_at", "created_at") values (daily_storage_fee, "{\"amount\":2000}", Frais journaliers de gardiennage (FCFA), fees, 1, 2025-08-24 01:56:16, 2025-08-24 01:56:16))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1204
+at vendor\laravel\framework\src\Illuminate\Support\helpers.php:399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1203
+at vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2525
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2541
+at tests\Unit\Services\FeeCalculationServiceTest.php:65
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 no such table: settings
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1204
+at vendor\laravel\framework\src\Illuminate\Support\helpers.php:399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:1203
+at vendor\laravel\framework\src\Illuminate\Support\Traits\ForwardsCalls.php:23
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2525
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:2541
+at tests\Unit\Services\FeeCalculationServiceTest.php:65</error>
+        </testcase>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature" tests="4" assertions="0" errors="10" failures="27" skipped="0" time="0.000000">
+      <testsuite name="Tests\Feature\Controllers\DashboardControllerTest" file="Dashboard Controller (Tests\Feature\Controllers\DashboardController)" tests="4" assertions="0" errors="4" failures="0" skipped="0" time="0.000000">
+        <testcase name="Admin can get dashboard stats" file="Dashboard Controller (Tests\Feature\Controllers\DashboardController)::Admin can get dashboard stats" class="Tests\Feature\Controllers\DashboardControllerTest" classname="Tests.Feature.Controllers.DashboardControllerTest" assertions="0" time="0.000000">
+          <error type="Illuminate\Database\QueryException">Admin can get dashboard statsIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, completed, 81591, 2, 1, 2025-08-24 01:56:17, 2025-08-24 01:56:17))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62</error>
+        </testcase>
+        <testcase name="Admin can get recent activities" file="Dashboard Controller (Tests\Feature\Controllers\DashboardController)::Admin can get recent activities" class="Tests\Feature\Controllers\DashboardControllerTest" classname="Tests.Feature.Controllers.DashboardControllerTest" assertions="0" time="0.000000">
+          <error type="Illuminate\Database\QueryException">Admin can get recent activitiesIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, sale, cancelled, 166524, 2, 1, 2025-08-24 01:56:17, 2025-08-24 01:56:17))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62</error>
+        </testcase>
+        <testcase name="Admin can get revenue stats" file="Dashboard Controller (Tests\Feature\Controllers\DashboardController)::Admin can get revenue stats" class="Tests\Feature\Controllers\DashboardControllerTest" classname="Tests.Feature.Controllers.DashboardControllerTest" assertions="0" time="0.000000">
+          <error type="Illuminate\Database\QueryException">Admin can get revenue statsIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, sale, in_progress, 144828, 2, 1, 2025-08-24 01:56:17, 2025-08-24 01:56:17))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62</error>
+        </testcase>
+        <testcase name="Regular user cannot access dashboard" file="Dashboard Controller (Tests\Feature\Controllers\DashboardController)::Regular user cannot access dashboard" class="Tests\Feature\Controllers\DashboardControllerTest" classname="Tests.Feature.Controllers.DashboardControllerTest" assertions="0" time="0.000000">
+          <error type="Illuminate\Database\QueryException">Regular user cannot access dashboardIlluminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id (Connection: sqlite, SQL: insert into "procedures" ("vehicle_id", "type", "status", "fees_calculated", "created_by", "user_id", "updated_at", "created_at") values (1, destruction, in_progress, 147904, 2, 1, 2025-08-24 01:56:18, 2025-08-24 01:56:18))&#13;
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62
+Caused by
+PDOException: SQLSTATE[HY000]: General error: 1 table procedures has no column named user_id
+
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:564
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:811
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:778
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:559
+at vendor\laravel\framework\src\Illuminate\Database\Connection.php:523
+at vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php:32
+at vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:3853
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:2220
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1434
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1399
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:1238
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:367
+at vendor\laravel\framework\src\Illuminate\Collections\Traits\EnumeratesValues.php:271
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:362
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:318
+at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Factories\Factory.php:312
+at tests\Feature\Controllers\DashboardControllerTest.php:62</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\Controllers\NotificationControllerTest" file="Notification Controller (Tests\Feature\Controllers\NotificationController)" tests="0" assertions="0" errors="0" failures="7" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\Controllers\OwnerControllerTest" file="Owner Controller (Tests\Feature\Controllers\OwnerController)" tests="0" assertions="0" errors="0" failures="3" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\Controllers\PaymentControllerTest" file="Payment Controller (Tests\Feature\Controllers\PaymentController)" tests="0" assertions="0" errors="1" failures="3" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\Controllers\ProcedureControllerTest" file="Procedure Controller (Tests\Feature\Controllers\ProcedureController)" tests="0" assertions="0" errors="5" failures="2" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\Controllers\UserControllerTest" file="User Controller (Tests\Feature\Controllers\UserController)" tests="0" assertions="0" errors="0" failures="10" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\Controllers\VehicleControllerTest" file="Vehicle Controller (Tests\Feature\Controllers\VehicleController)" tests="0" assertions="0" errors="0" failures="2" skipped="0" time="0.000000"/>
+      <testsuite name="Tests\Feature\ExampleTest" file="Example (Tests\Feature\Example)" tests="0" assertions="0" errors="0" failures="0" skipped="0" time="0.000000"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

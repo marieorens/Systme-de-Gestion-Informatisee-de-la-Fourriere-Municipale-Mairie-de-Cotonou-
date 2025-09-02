@@ -89,8 +89,6 @@ class FileService
      */
     public function generateQrCode(array $data): string
     {
-        // In a real implementation, you would use a QR code generation library
-        // For now, we just return a random string as a placeholder
         
         $qrCode = 'QR' . md5(json_encode($data));
         
@@ -122,13 +120,10 @@ class FileService
      */
     public function storeBase64File(string $base64String, string $directory, string $extension = 'png'): string
     {
-        // Extract the base64 content
         $base64Content = $this->extractBase64Content($base64String);
         
-        // Generate a filename
         $fileName = Str::random(40) . '.' . $extension;
         
-        // Store the file
         $path = 'public/' . $directory . '/' . $fileName;
         Storage::put($path, base64_decode($base64Content));
         

@@ -36,7 +36,6 @@ export const VehiclesListPage = () => {
     const fetchVehicles = async () => {
       try {
         setLoading(true);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params: any = { page };
         
         if (searchTerm) params.search = searchTerm;
@@ -66,7 +65,6 @@ export const VehiclesListPage = () => {
   useEffect(() => {
     let filtered = vehicles;
 
-    // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(vehicle =>
         vehicle.license_plate.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -76,12 +74,10 @@ export const VehiclesListPage = () => {
       );
     }
 
-    // Filter by status
     if (statusFilter !== 'all') {
       filtered = filtered.filter(vehicle => vehicle.status === statusFilter);
     }
 
-    // Filter by type
     if (typeFilter !== 'all') {
       filtered = filtered.filter(vehicle => vehicle.type === typeFilter);
     }
@@ -130,7 +126,6 @@ export const VehiclesListPage = () => {
 
   const canEditVehicles = hasAnyRole(['admin', 'agent']);
 
-  // Statistics
   const totalVehicles = vehicles.length;
   const impoundedCount = vehicles.filter(v => v.status === 'impounded').length;
   const claimedCount = vehicles.filter(v => v.status === 'claimed').length;
@@ -178,7 +173,6 @@ export const VehiclesListPage = () => {
 
   return (
     <div className="p-4 sm:p-6 space-y-6 animate-fade-in">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Véhicules en fourrière</h1>
@@ -201,7 +195,6 @@ export const VehiclesListPage = () => {
         </div>
       </div>
 
-      {/* Statistics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-2">
@@ -240,7 +233,6 @@ export const VehiclesListPage = () => {
         </Card>
       </div>
 
-      {/* Filters */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -289,7 +281,6 @@ export const VehiclesListPage = () => {
         </CardContent>
       </Card>
 
-      {/* Vehicles Table */}
       <Card>
         <CardHeader>
           <CardTitle>Liste des véhicules</CardTitle>

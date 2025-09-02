@@ -84,10 +84,10 @@ export const LandingPage = () => {
                 <img
                   src={municipalBuilding}
                   alt="Mairie de Cotonou"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[600px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-blue/20 to-transparent"></div>
+                <div className="absolute bottom-2 left-6 text-black">
                   <h3 className="text-lg font-semibold">Mairie de Cotonou</h3>
                 </div>
               </div>

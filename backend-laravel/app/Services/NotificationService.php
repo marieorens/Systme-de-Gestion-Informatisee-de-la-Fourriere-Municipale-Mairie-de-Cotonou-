@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Log;
 
 class NotificationService
 {
-    /**
-     * Create a new notification
-     */
     public function createNotification(
         string $title,
         string $message,
@@ -52,9 +49,6 @@ class NotificationService
         return $notification;
     }
     
-    /**
-     * Create a vehicle impound notification
-     */
     public function createVehicleImpoundNotification(Vehicle $vehicle): Notification
     {
         $title = 'Véhicule mis en fourrière';
@@ -71,9 +65,6 @@ class NotificationService
         );
     }
     
-    /**
-     * Create a payment due notification
-     */
     public function createPaymentDueNotification(Vehicle $vehicle, float $amount): Notification
     {
         $title = 'Paiement de frais de fourrière';
@@ -90,9 +81,6 @@ class NotificationService
         );
     }
     
-    /**
-     * Create a vehicle release notification
-     */
     public function createVehicleReleaseNotification(Vehicle $vehicle): Notification
     {
         $title = 'Véhicule libéré de la fourrière';
@@ -109,9 +97,6 @@ class NotificationService
         );
     }
     
-    /**
-     * Create a system notification for all admins
-     */
     public function createSystemNotification(string $title, string $message): void
     {
         try {
@@ -133,9 +118,6 @@ class NotificationService
         }
     }
     
-    /**
-     * Mark a notification as read
-     */
     public function markAsRead(Notification $notification): Notification
     {
         $notification->read_at = now();
@@ -143,9 +125,6 @@ class NotificationService
         return $notification;
     }
     
-    /**
-     * Get unread notifications for a user
-     */
     public function getUnreadNotificationsForUser(User $user, int $limit = 15)
     {
         return Notification::where('user_id', $user->id)
@@ -155,9 +134,6 @@ class NotificationService
             ->get();
     }
     
-    /**
-     * Get unread notifications for an owner
-     */
     public function getUnreadNotificationsForOwner(Owner $owner, int $limit = 15)
     {
         return Notification::where('owner_id', $owner->id)
@@ -167,9 +143,6 @@ class NotificationService
             ->get();
     }
     
-    /**
-     * Notification lorsqu'un véhicule est prêt pour être récupéré (après paiement)
-     */
     public function vehicleReadyForRelease(Vehicle $vehicle)
     {
         if (!$vehicle->owner) {

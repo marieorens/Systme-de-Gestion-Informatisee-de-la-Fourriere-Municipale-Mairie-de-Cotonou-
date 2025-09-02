@@ -8,12 +8,6 @@ use Carbon\Carbon;
 
 class FeeCalculationService
 {
-    /**
-     * Calculate fees for a vehicle.
-     *
-     * @param Vehicle $vehicle
-     * @return array
-     */
     public function calculateFees(Vehicle $vehicle): array
     {
         // Get fee settings

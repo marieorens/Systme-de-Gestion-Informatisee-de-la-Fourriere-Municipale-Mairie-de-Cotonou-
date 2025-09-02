@@ -61,7 +61,6 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
     console.error('Erreur lors du chargement du logo:', e);
   }
   
-  // Titre du reçu
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(20);
@@ -69,24 +68,20 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
   doc.setFontSize(14);
   doc.text('MAIRIE DE COTONOU - FOURRIÈRE MUNICIPALE', 105, 22, { align: 'center' });
   
-  // Titre du document
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.setFontSize(24);
   doc.text('REÇU DE PAIEMENT', 105, 45, { align: 'center' });
   
-  // Ligne d'accent
   doc.setDrawColor(accentColor[0], accentColor[1], accentColor[2]);
   doc.setLineWidth(1);
   doc.line(45, 48, 165, 48);
   
-  // Numéro de reçu et date
   doc.setTextColor(0, 0, 0);
   doc.setFontSize(12);
   doc.setFont('helvetica', 'bold');
   doc.text(`Reçu N°: ${payment.receipt_number}`, 20, 60);
   doc.text(`Date: ${payment.created_at ? new Date(payment.created_at).toLocaleDateString('fr-FR') : 'Date inconnue'}`, 170, 60, { align: 'right' });
   
-  // Informations sur le véhicule
   doc.setFillColor(245, 245, 245);
   doc.rect(20, 70, 170, 40, 'F');
   
@@ -152,12 +147,11 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
     const qrText = `https://fourriere.mairie-cotonou.bj/verif?receipt=${data.payment.receipt_number}`;
     const { generateQrCodeDataUrl } = await import('./generateQrCode');
     const qrCodeDataUrl = await generateQrCodeDataUrl(qrText);
-  doc.addImage(qrCodeDataUrl, 'PNG', 170, 255, 25, 25);
+  doc.addImage(qrCodeDataUrl, 'PNG', 170, 245, 25, 25);
   } catch (e) {
     console.error('Erreur lors de la génération du QR code:', e);
   }
   
-  // Conditions et termes
   doc.setFontSize(10);
   doc.setTextColor(100, 100, 100);
   doc.setFont('helvetica', 'normal');
@@ -167,7 +161,6 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
     'Horaires d\'ouverture de la fourrière: Du lundi au vendredi de 8h à 17h et le samedi de 8h à 12h.'
   ], 20, 200, { maxWidth: 170, align: 'left' });
   
-  // Pied de page
   doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.rect(0, 277, 210, 20, 'F');
   

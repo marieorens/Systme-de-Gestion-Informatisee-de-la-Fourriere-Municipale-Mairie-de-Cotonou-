@@ -147,11 +147,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       // Clear user data and token
       setUser(null);
       removeToken();
-      
-      toast({
-        title: 'Déconnexion réussie',
-        description: 'Vous avez été déconnecté avec succès',
-      });
     } catch (error) {
       // Even if the API call fails, still clear local data
       setUser(null);

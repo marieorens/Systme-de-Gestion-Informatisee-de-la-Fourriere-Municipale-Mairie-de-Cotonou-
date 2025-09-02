@@ -44,12 +44,10 @@ export const VehicleLookupPage = () => {
     addKkiapayCloseListener 
   } = useKKiaPay();
   
-  // Fonction pour télécharger le reçu
   const downloadReceipt = useCallback(async () => {
     if (!paymentId) {
       console.error('Aucun ID de paiement disponible pour télécharger le reçu');
       
-      // Essayer de récupérer l'ID de paiement depuis sessionStorage
       const storedPaymentId = sessionStorage.getItem('last_payment_id');
       if (storedPaymentId) {
         console.log('Utilisation de l\'ID de paiement stocké:', storedPaymentId);
@@ -58,7 +56,6 @@ export const VehicleLookupPage = () => {
           title: 'Récupération du paiement',
           description: 'Nous essayons de récupérer les informations de votre paiement...',
         });
-        return; // Le useEffect se déclenchera avec le nouveau paymentId
       } else {
         toast({
           title: 'Erreur de téléchargement',
@@ -73,7 +70,6 @@ export const VehicleLookupPage = () => {
     setIsGeneratingReceipt(true);
     
     try {
-      // Générer le reçu via le service API ou localement si l'API échoue
       const receiptData = await paymentService.generateReceipt(paymentId);
       console.log('Reçu généré avec succès:', receiptData);
       
@@ -81,7 +77,6 @@ export const VehicleLookupPage = () => {
         throw new Error('Reçu généré mais URL manquante');
       }
       
-      // Create a link to download the receipt
       const link = document.createElement('a');
       link.href = receiptData.receipt_url;
       link.download = `recu-paiement-fourriere-${searchResult?.license_plate || 'inconnu'}.pdf`;
@@ -89,10 +84,8 @@ export const VehicleLookupPage = () => {
       link.click();
       document.body.removeChild(link);
       
-      // Envoyer le reçu par email si nous avons l'adresse email du propriétaire
       if (searchResult?.owner?.email) {
         try {
-          // Extraire la partie Base64 de l'URL data si c'est une URL data
           let pdfBase64 = receiptData.receipt_url;
           if (receiptData.receipt_url.startsWith('data:application/pdf;base64,')) {
             pdfBase64 = receiptData.receipt_url.split(',')[1];
@@ -101,7 +94,6 @@ export const VehicleLookupPage = () => {
           await paymentService.sendReceiptByEmail(paymentId, searchResult.owner.email, pdfBase64)
             .catch(emailError => {
               console.error('Erreur lors de l\'envoi du reçu par email:', emailError);
-              // On ne bloque pas le processus si l'envoi d'email échoue
             });
             
           toast({
@@ -643,7 +635,7 @@ export const VehicleLookupPage = () => {
           <div className="flex gap-2">
             <Input
               type="text"
-              placeholder="Ex: AB 1234 CD"
+              placeholder="Ex: BN 4312 RB"
               value={plateNumber}
               onChange={(e) => setPlateNumber(e.target.value)}
               className="text-center text-lg font-semibold uppercase"
@@ -726,7 +718,7 @@ export const VehicleLookupPage = () => {
                         </div>
                         
                         <Button 
-                          className="w-full bg-municipal-gradient hover:opacity-90" 
+                          className="w-full bg-primary hover:opacity-90" 
                           size="lg"
                           onClick={handlePayment}
                           disabled={isPaying}
@@ -792,9 +784,9 @@ export const VehicleLookupPage = () => {
                       <h4 className="font-semibold text-orange-900 mb-2">📍 Adresse de la fourrière</h4>
                       <div className="text-sm text-orange-700 space-y-1">
                         <p><strong>Fourrière Municipale de Cotonou</strong></p>
-                        <p>📞 Tél: +229 21 30 04 00</p>
-                        <p>📧 Email: fourriere@mairie-cotonou.bj</p>
-                        <p>🕐 Ouvert: Lun-Ven 8h-17h, Sam 8h-12h</p>
+                        <p> Tél: +229 21 30 04 00</p>
+                        <p> Email: fourriere@mairie-cotonou.bj</p>
+                        <p> Ouvert: Lun-Ven 8h-17h, Sam 8h-12h</p>
                       </div>
                     </div>
                   </div>
@@ -814,8 +806,8 @@ export const VehicleLookupPage = () => {
                   </p>
                   <div className="space-y-2">
                     <p className="text-sm font-semibold">Fourrière Municipale de Cotonou</p>
-                    <p className="text-sm text-muted-foreground">📞Tél: +229 21 30 04 00</p>
-                    <p className="text-sm text-muted-foreground">📧Email: fourriere@mairie-cotonou.bj</p>
+                    <p className="text-sm text-muted-foreground">Tél: +229 21 30 04 00</p>
+                    <p className="text-sm text-muted-foreground">Email: fourriere@mairie-cotonou.bj</p>
                   </div>
                 </CardContent>
               </Card>

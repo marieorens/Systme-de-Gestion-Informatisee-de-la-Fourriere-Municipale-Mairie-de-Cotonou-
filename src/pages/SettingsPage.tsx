@@ -32,7 +32,7 @@ export const SettingsPage = () => {
       reminderDays: [7, 3, 1]
     },
     documents: {
-      receiptTemplate: 'Reçu de paiement des frais de fourrière...',
+      receiptTemplate: 'Quittance de paiement des frais de fourrière...',
       pvTemplate: 'Procès-verbal de mise en fourrière...',
       noticeTemplate: 'Avis de mise en fourrière...'
     }

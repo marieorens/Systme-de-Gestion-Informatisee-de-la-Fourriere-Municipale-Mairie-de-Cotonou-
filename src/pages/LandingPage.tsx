@@ -143,7 +143,7 @@ export const LandingPage = () => {
               <Button size="lg" variant="municipal" asChild>
                 <Link to="/vehicule-lookup">
                   <Search className="mr-2 h-5 w-5" />
-                  Voir l'état de mon véhicule en fourrière
+                  Je vérifie ma redevance
                 </Link>
               </Button>
             </div>

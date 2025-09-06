@@ -32,8 +32,37 @@ import { toast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import paymentService from '@/services/paymentService';
 import vehicleService, { VehicleStorageFeeResponse } from '@/services/vehicleService';
-import { VehicleStatus, PaymentMethod, UserRole } from '@/types/enums';
+import { VehicleStatus, PaymentMethod, UserRole, VehicleType } from '@/types/enums';
 import { Vehicle, Payment, PaginatedResponse } from '@/types';
+
+const getRemovalFee = (type: VehicleType): number => {
+  switch (type) {
+    case VehicleType.MOTORCYCLE: return 5000;
+    case VehicleType.TRICYCLE: return 10000;
+    case VehicleType.SMALL_VEHICLE: return 30000;
+    case VehicleType.MEDIUM_VEHICLE: return 50000;
+    case VehicleType.LARGE_VEHICLE: return 80000;
+    case VehicleType.SMALL_TRUCK: return 50000;
+    case VehicleType.MEDIUM_TRUCK: return 120000;
+    case VehicleType.LARGE_TRUCK: return 150000;
+    default: return 30000;
+  }
+};
+
+// Fonction pour obtenir les frais de garde journalière selon le type de véhicule
+const getDailyStorageFee = (type: VehicleType): number => {
+  switch (type) {
+    case VehicleType.MOTORCYCLE: return 2000;
+    case VehicleType.TRICYCLE: return 3000;
+    case VehicleType.SMALL_VEHICLE: return 5000;
+    case VehicleType.MEDIUM_VEHICLE: return 10000;
+    case VehicleType.LARGE_VEHICLE: return 15000;
+    case VehicleType.SMALL_TRUCK: return 10000;
+    case VehicleType.MEDIUM_TRUCK: return 15000;
+    case VehicleType.LARGE_TRUCK: return 20000;
+    default: return 5000;
+  }
+};
 import { Link } from 'react-router-dom';
 
 interface VehicleWithFinancialData extends Vehicle {
@@ -583,32 +612,35 @@ export const PaymentsPage = () => {
                 <h4 className="font-semibold mb-3">Calcul des frais</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span>Frais administratifs:</span>
-                    <span className="font-medium">{formatCurrency(selectedVehicle.adminFees)}</span>
+                    <span>Frais d'enlèvement:</span>
+                    <span className="font-medium">{formatCurrency(getRemovalFee(selectedVehicle.type))}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Frais de stockage ({selectedVehicle.daysSinceImpound} jours):</span>
-                    <span className="font-medium">{formatCurrency(selectedVehicle.storageFees)}</span>
+                    <span className="font-medium">
+                      {formatCurrency(getDailyStorageFee(selectedVehicle.type) * selectedVehicle.daysSinceImpound)}
+                    </span>
                   </div>
-                  {selectedVehicle.penaltyFees > 0 && (
-                    <div className="flex justify-between">
-                      <span>Frais de pénalité:</span>
-                      <span className="font-medium">{formatCurrency(selectedVehicle.penaltyFees)}</span>
-                    </div>
-                  )}
                   <div className="border-t pt-2 flex justify-between font-semibold">
                     <span>Total à payer:</span>
-                    <span>{formatCurrency(selectedVehicle.totalDue)}</span>
+                    <span>{formatCurrency(
+                      getRemovalFee(selectedVehicle.type) + 
+                      (getDailyStorageFee(selectedVehicle.type) * selectedVehicle.daysSinceImpound)
+                    )}</span>
                   </div>
                   {selectedVehicle.isPaid && (
                     <>
                       <div className="flex justify-between text-green-600">
                         <span>Montant payé:</span>
-                        <span>-{formatCurrency(selectedVehicle.amountPaid)}</span>
+                        <span>-{formatCurrency(selectedVehicle.amountPaid || 0)}</span>
                       </div>
                       <div className="border-t pt-2 flex justify-between font-semibold">
                         <span>Restant dû:</span>
-                        <span>{formatCurrency(selectedVehicle.remainingAmount)}</span>
+                        <span>{formatCurrency(
+                          (getRemovalFee(selectedVehicle.type) + 
+                           (getDailyStorageFee(selectedVehicle.type) * selectedVehicle.daysSinceImpound)) -
+                          (selectedVehicle.amountPaid || 0)
+                        )}</span>
                       </div>
                     </>
                   )}

@@ -27,14 +27,12 @@ class Vehicle extends Model
         'photos',
         'qr_code',
         'owner_id',
-        'estimated_value',
         'description',
     ];
 
     protected function casts(): array
     {
         return [
-            'type' => VehicleType::class,
             'status' => VehicleStatus::class,
             'impound_date' => 'datetime',
             'release_date' => 'date',

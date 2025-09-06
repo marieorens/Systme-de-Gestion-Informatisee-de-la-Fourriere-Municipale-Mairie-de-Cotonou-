@@ -74,7 +74,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(user);
       
       toast({
-        title: 'Connexion réussie',
         description: `Bienvenue, ${user.name}!`,
       });
     } catch (error) {

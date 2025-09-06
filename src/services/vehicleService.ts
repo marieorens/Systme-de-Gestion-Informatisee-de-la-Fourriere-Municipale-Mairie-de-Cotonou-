@@ -10,10 +10,9 @@ export interface VehicleCreateData {
   color: string;
   year: number;
   type: VehicleType;
+  status: VehicleStatus;
   impound_date: string;
   location: string;
-  owner_id?: string;
-  estimated_value: number;
   description?: string;
 }
 
@@ -185,6 +184,23 @@ const vehicleService = {
   updateVehicle: async (id: string, vehicleData: VehicleUpdateData): Promise<Vehicle> => {
     const response = await api.put(endpoints.vehicleById(id), vehicleData);
     return response.data.data;
+  },
+
+  /**
+   * Mise à jour publique d'un véhicule par plaque d'immatriculation (sans authentification)
+   */
+  publicUpdateVehicleByPlate: async (licensePlate: string, vehicleData: VehicleUpdateData): Promise<Vehicle> => {
+    const response = await axios.put(
+      `${api.defaults.baseURL}${endpoints.publicUpdateVehicleByPlate(licensePlate)}`,
+      vehicleData,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      }
+    );
+    return response.data.vehicle || response.data.data;
   },
 
   /**

@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/table';
 import { Vehicle } from '@/types';
 import { VehicleStatus, VehicleType } from '@/types/enums';
+import { VehicleFilters } from '@/services/vehicleService';
 import { useAuth } from '@/contexts/AuthContext';
 import { vehicleService } from '@/services';
 import { toast } from '@/hooks/use-toast';
@@ -36,11 +37,12 @@ export const VehiclesListPage = () => {
     const fetchVehicles = async () => {
       try {
         setLoading(true);
-        const params: any = { page };
-        
-        if (searchTerm) params.search = searchTerm;
-        if (statusFilter !== 'all') params.status = statusFilter;
-        if (typeFilter !== 'all') params.type = typeFilter;
+        const params: VehicleFilters = {
+          page,
+          search: searchTerm || undefined,
+          status: statusFilter !== 'all' ? statusFilter : undefined,
+          type: typeFilter !== 'all' ? typeFilter : undefined
+        };
         
         const response = await vehicleService.getVehicles(params);
         setVehicles(response.data);
@@ -107,13 +109,7 @@ export const VehiclesListPage = () => {
   };
 
   const getTypeLabel = (type: VehicleType) => {
-    switch (type) {
-      case 'car': return 'Voiture';
-      case 'motorcycle': return 'Moto';
-      case 'truck': return 'Camion';
-      case 'other': return 'Autre';
-      default: return type;
-    }
+    return type; // L'enum contient déjà les labels en français
   };
 
   const formatCurrency = (amount: number) => {
@@ -129,10 +125,9 @@ export const VehiclesListPage = () => {
   const totalVehicles = vehicles.length;
   const impoundedCount = vehicles.filter(v => v.status === 'impounded').length;
   const claimedCount = vehicles.filter(v => v.status === 'claimed').length;
-  const totalValue = vehicles.reduce((sum, v) => sum + v.estimated_value, 0);
 
   const exportToCSV = () => {
-    const headers = ['Plaque', 'Marque', 'Modèle', 'Couleur', 'Année', 'Type', 'Statut', 'Location', 'Valeur estimée'];
+    const headers = ['Plaque', 'Marque', 'Modèle', 'Couleur', 'Année', 'Type', 'Statut', 'Location'];
     const csvContent = [
       headers.join(','),
       ...filteredVehicles.map(vehicle => [
@@ -143,8 +138,7 @@ export const VehiclesListPage = () => {
         vehicle.year,
         getTypeLabel(vehicle.type),
         getStatusLabel(vehicle.status),
-        vehicle.location,
-        vehicle.estimated_value
+        vehicle.location
       ].join(','))
     ].join('\n');
 
@@ -225,10 +219,10 @@ export const VehiclesListPage = () => {
         
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Valeur totale</CardDescription>
+            <CardDescription>Vendus</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatCurrency(totalValue)}</div>
+            <div className="text-2xl font-bold">{vehicles.filter(v => v.status === 'sold' || v.status === 'destroyed').length}</div>
           </CardContent>
         </Card>
       </div>
@@ -271,10 +265,9 @@ export const VehiclesListPage = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Tous les types</SelectItem>
-                <SelectItem value="car">Voiture</SelectItem>
-                <SelectItem value="motorcycle">Moto</SelectItem>
-                <SelectItem value="truck">Camion</SelectItem>
-                <SelectItem value="other">Autre</SelectItem>
+                {Object.values(VehicleType).map((type) => (
+                  <SelectItem key={type} value={type}>{type}</SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -298,7 +291,6 @@ export const VehiclesListPage = () => {
                   <TableHead className="hidden md:table-cell">Type</TableHead>
                   <TableHead className="min-w-[100px]">Statut</TableHead>
                   <TableHead className="hidden lg:table-cell">Location</TableHead>
-                  <TableHead className="hidden xl:table-cell">Valeur</TableHead>
                   <TableHead className="min-w-[100px]">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -321,9 +313,6 @@ export const VehiclesListPage = () => {
                       </Badge>
                     </TableCell>
                     <TableCell className="hidden lg:table-cell">{vehicle.location}</TableCell>
-                    <TableCell className="hidden xl:table-cell">
-                      {formatCurrency(vehicle.estimated_value)}
-                    </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-1">
                         <Button variant="ghost" size="sm" asChild>

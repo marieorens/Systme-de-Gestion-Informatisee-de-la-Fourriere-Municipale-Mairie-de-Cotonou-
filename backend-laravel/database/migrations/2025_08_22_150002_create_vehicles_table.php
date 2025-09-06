@@ -18,14 +18,13 @@ return new class extends Migration
             $table->string('model');
             $table->string('color');
             $table->year('year');
-            $table->enum('type', ['car', 'motorcycle', 'truck', 'other']);
+            $table->string('type'); 
             $table->enum('status', ['impounded', 'claimed', 'sold', 'destroyed', 'pending_destruction']);
             $table->dateTime('impound_date');
             $table->string('location');
             $table->json('photos')->nullable();
             $table->string('qr_code')->nullable();
             $table->foreignId('owner_id')->constrained('owners');
-            $table->decimal('estimated_value', 12, 2);
             $table->text('description')->nullable();
             $table->timestamps();
 

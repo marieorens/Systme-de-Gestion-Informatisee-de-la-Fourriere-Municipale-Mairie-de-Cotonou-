@@ -10,7 +10,8 @@ use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
+use Barryvdh\DomPDF\Facade\Pdf;
+use Endroid\QrCode\Builder\Builder;
 /**
  * @OA\Tag(
  *     name="Payments",
@@ -18,12 +19,106 @@ use Carbon\Carbon;
  * )
  */
 class PaymentController extends Controller
+    /**
+     * Détail public d'un paiement (par id ou référence)
+     */
+   
 {
     protected $notificationService;
 
     public function __construct(NotificationService $notificationService)
     {
         $this->notificationService = $notificationService;
+    }
+
+    /**
+     * Liste publique des paiements (sans authentification)
+     */
+    public function publicIndex(Request $request)
+    {
+        $query = Payment::query()->with(['vehicle', 'user']);
+
+        // Filtres optionnels
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('reference', 'like', "%{$search}%")
+                  ->orWhereHas('vehicle', function ($vehicleQuery) use ($search) {
+                      $vehicleQuery->where('license_plate', 'like', "%{$search}%");
+                  });
+            });
+        }
+        if ($request->has('payment_method')) {
+            $query->where('payment_method', $request->input('payment_method'));
+        }
+        if ($request->has('date_from')) {
+            $query->whereDate('created_at', '>=', $request->input('date_from'));
+        }
+        if ($request->has('date_to')) {
+            $query->whereDate('created_at', '<=', $request->input('date_to'));
+        }
+
+        $perPage = $request->input('per_page', 15);
+        $payments = $query->latest()->paginate($perPage);
+
+        return PaymentResource::collection($payments);
+    }
+
+     public function publicShow($id)
+    {
+        $payment = Payment::with(['vehicle', 'user'])
+            ->where('id', $id)
+            ->orWhere('reference', $id)
+            ->firstOrFail();
+        return new PaymentResource($payment);
+    }
+
+    /**
+     * Enregistrement d'un paiement KKiaPay (public, sans authentification)
+     */
+    public function storeKkiapay(Request $request)
+    {
+        $data = $request->validate([
+            'id' => 'required|string|unique:payments,reference',
+            'vehicle_id' => 'required|exists:vehicles,id',
+            'amount' => 'required|numeric|min:0',
+            'payment_method' => 'required|string',
+            'description' => 'nullable|string',
+        ]);
+
+        $vehicle = Vehicle::find($data['vehicle_id']);
+        $ownerId = $vehicle ? $vehicle->owner_id : null;
+
+        try {
+            $payment = Payment::create([
+                'vehicle_id' => $data['vehicle_id'],
+                'owner_id' => $ownerId,
+                'amount' => $data['amount'],
+                'payment_method' => $data['payment_method'],
+                'reference' => $data['id'],
+                'description' => $data['description'] ?? 'Paiement KKiaPay',
+                'payment_date' => now(),
+            ]);
+            \Log::info('Paiement KKiaPay créé avec succès', ['payment' => $payment->toArray()]);
+        } catch (\Exception $e) {
+            \Log::error('Erreur lors de la création du paiement KKiaPay', [
+                'data' => $data,
+                'exception' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json([
+                'error' => 'Erreur lors de la création du paiement',
+                'details' => $e->getMessage()
+            ], 500);
+        }
+
+        return response()->json([
+            'id' => $payment->id,
+            'reference' => $payment->reference,
+            'receipt_url' => url("/public/payments/{$payment->reference}/receipt"),
+            'payment' => new PaymentResource($payment)
+        ], 201);
+
     }
 
     /**
@@ -198,14 +293,11 @@ class PaymentController extends Controller
     public function getReceipt($id)
     {
         $payment = Payment::with(['vehicle.owner', 'user'])->findOrFail($id);
-        
-        // Get system settings
         $settings = \Illuminate\Support\Facades\Cache::get('system_settings', [
             'system_name' => 'Système de Gestion de la Fourrière Municipale de Cotonou',
             'contact_phone' => '+229 21 30 30 30',
             'address' => 'Hôtel de ville de Cotonou, Bénin'
         ]);
-        
         $receiptDetails = [
             'receipt_number' => $payment->reference,
             'date' => $payment->created_at,
@@ -213,13 +305,52 @@ class PaymentController extends Controller
             'address' => $settings['address'],
             'contact_phone' => $settings['contact_phone']
         ];
-        
-        return response()->json([
-            'data' => [
-                'payment' => new PaymentResource($payment),
-                'receipt_details' => $receiptDetails
-            ]
+
+    $qrText = 'http://127.0.0.1:8000/verif?receipt=' . $payment->reference;
+    $result = Builder::create()
+        ->data($qrText)
+        ->size(110)
+        ->margin(0)
+        ->build();
+    $qrCodeRaw = $result->getString(); 
+    $qrCodeBase64 = 'data:image/png;base64,' . base64_encode($qrCodeRaw);
+        $pdf = Pdf::loadView('receipts.payment', [
+            'payment' => $payment,
+            'receiptDetails' => $receiptDetails,
+            'qrCode' => $qrCodeBase64
         ]);
+
+        $filename = 'quitance_de_paiement_' . $payment->id . '_' . time() . '.pdf';
+        $receiptsDir = storage_path('app/public/receipts/');
+        $path = $receiptsDir . $filename;
+        if (!file_exists($receiptsDir)) {
+            mkdir($receiptsDir, 0775, true);
+        }
+        try {
+            $pdf->save($path);
+        } catch (\Exception $e) {
+            \Log::error('Erreur génération PDF reçu: ' . $e->getMessage());
+        }
+        $receiptUrl = asset('storage/receipts/' . $filename);
+        if ($payment->receipt_url !== $receiptUrl) {
+            $payment->receipt_url = $receiptUrl;
+            $payment->save();
+        }
+        return response()->json([
+            'receipt_url' => $receiptUrl
+        ]);
+    }
+
+    public function verifyReceipt(Request $request)
+    {
+    $reference = $request->query('receipt');
+    $payment = Payment::where('reference', $reference)->with(['vehicle.owner'])->first();
+
+    if (!$payment) {
+        return view('receipts.notfound', ['reference' => $reference]);
+    }
+
+    return view('receipts.verify', ['payment' => $payment]);
     }
     
     /**

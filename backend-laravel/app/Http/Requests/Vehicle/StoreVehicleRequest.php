@@ -60,8 +60,6 @@ class StoreVehicleRequest extends FormRequest
             'location' => ['required', 'string', 'max:255'],
             'photos' => ['nullable', 'array'],
             'qr_code' => ['nullable', 'string'],
-            'owner_id' => ['required', 'exists:owners,id'],
-            'estimated_value' => ['required', 'numeric', 'min:0'],
             'description' => ['nullable', 'string'],
         ];
     }

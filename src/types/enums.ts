@@ -7,10 +7,15 @@ export enum UserRole {
 }
 
 export enum VehicleType {
-  CAR = 'car',
-  MOTORCYCLE = 'motorcycle',
-  TRUCK = 'truck',
-  OTHER = 'other'
+  MOTORCYCLE = 'Deux-roues motorisés',
+  TRICYCLE = 'Tricycles',
+  SMALL_VEHICLE = 'Véhicule de 4 à 12 places',
+  MEDIUM_VEHICLE = 'Véhicule de 13 à 30 places',
+  LARGE_VEHICLE = 'Véhicule à partir de 31 places',
+  SMALL_TRUCK = 'Camion inférieur à 5 tonnes',
+  MEDIUM_TRUCK = 'Camion de 5 à 10 tonnes',
+  LARGE_TRUCK = 'Camion supérieur à 10 tonnes',
+  OTHER = 'Autre'
 }
 
 export enum VehicleStatus {

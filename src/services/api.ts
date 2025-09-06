@@ -37,9 +37,15 @@ if (token) {
 
 api.interceptors.request.use(
   (config) => {
-    const token = getToken();
-    if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
+    if (config.url && config.url.startsWith('/public/')) {
+      if (config.headers) {
+        delete config.headers.Authorization;
+      }
+    } else {
+      const token = getToken();
+      if (token && config.headers) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
     return config;
   },
@@ -55,14 +61,7 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     const url = error.config?.url || '';
-    const isPublicEndpoint = url.includes('/public/') || 
-                             url.includes('/auth/login') ||
-                             url.includes('vehicle-lookup') ||
-                             url.includes('vehicles/license_plate') ||
-                             (url.includes('/payments/') && !url.includes('/admin/')) ||
-                             url.includes('/receipt') ||
-                             url.includes('/confirmation') ||
-                             (url.includes('/vehicles/') && url.includes('/storage-fee'));
+  const isPublicEndpoint = url.includes('/public/');
     
     console.log('API error URL:', url, 'isPublicEndpoint:', isPublicEndpoint);
     
@@ -115,23 +114,24 @@ export const endpoints = {
   vehicleStorageFee: (id: string) => `/vehicles/${id}/storage-fee`,
   publicVehicleStorageFee: (licensePlate: string) => `/public/vehicles/${licensePlate}/fees`,
 
+  publicUpdateVehicle: (id: string) => `/public/vehicles/${id}/update`,
+
+  publicUpdateVehicleByPlate: (licensePlate: string) => `/public/vehicles/${licensePlate}/update-by-plate`,
+
   // Owners
   owners: '/owners',
   ownerById: (id: string) => `/owners/${id}`,
   ownerVehicles: (id: string) => `/owners/${id}/vehicles`,
 
-  // Procedures
   procedures: '/procedures',
   procedureById: (id: string) => `/procedures/${id}`,
   procedureDocuments: (id: string) => `/procedures/${id}/documents`,
 
-  // Payments
   payments: '/payments',
   paymentById: (id: string) => `/payments/${id}`,
   generateReceipt: (id: string) => `/payments/${id}/receipt`,
   sendReceiptByEmail: (id: string) => `/payments/${id}/send-receipt`,
 
-  // Users (Admin only)
   users: '/admin/users',
   userById: (id: string) => `/admin/users/${id}`,
   toggleUserActive: (id: string) => `/admin/users/${id}/toggle-active`,

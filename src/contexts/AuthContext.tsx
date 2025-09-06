@@ -74,7 +74,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(user);
       
       toast({
-        title: 'Connexion réussie',
         description: `Bienvenue, ${user.name}!`,
       });
     } catch (error) {
@@ -141,14 +140,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       setIsLoading(true);
       
-      // Call the logout endpoint
+     
       await api.post(endpoints.logout);
       
-      // Clear user data and token
+      
       setUser(null);
       removeToken();
     } catch (error) {
-      // Even if the API call fails, still clear local data
+      
       setUser(null);
       removeToken();
       

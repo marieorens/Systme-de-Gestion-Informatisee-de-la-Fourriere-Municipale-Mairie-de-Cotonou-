@@ -13,7 +13,6 @@ class Payment extends Model
 
     protected $fillable = [
         'vehicle_id',
-        'owner_id',
         'amount',
         'payment_method',
         'payment_date',

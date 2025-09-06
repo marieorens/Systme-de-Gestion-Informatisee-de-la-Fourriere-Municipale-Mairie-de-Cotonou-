@@ -1,4 +1,13 @@
+
 <?php
+
+Route::get('login', function () {
+    return response()->json(['message' => 'Authentification requise'], 401);
+})->name('login');
+
+Route::put('public/vehicles/{id}/update', [App\Http\Controllers\PublicVehicleController::class, 'publicUpdate']);
+Route::put('public/vehicles/{licensePlate}/update-by-plate', [App\Http\Controllers\PublicVehicleController::class, 'publicUpdateByPlate']);
+
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
@@ -8,17 +17,25 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\PublicVehicleController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\VehicleNotificationController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-// Public routes
 Route::prefix('public')->group(function () {
     Route::post('vehicles/search', [PublicVehicleController::class, 'search']);
     Route::get('vehicles/{licensePlate}', [PublicVehicleController::class, 'getByLicensePlate']);
     Route::get('vehicles/{licensePlate}/fees', [PublicVehicleController::class, 'calculateFees']);
     // Ajout de la route publique pour le reçu de paiement
     Route::get('payments/{id}/receipt', [PaymentController::class, 'getReceipt']);
+    Route::post('payments/kkiapay', [PaymentController::class, 'storeKkiapay']);
+    Route::get('payments', [PaymentController::class, 'publicIndex']);
+    // Route publique pour récupérer les détails d'un paiement
+    Route::get('payments/{id}', [PaymentController::class, 'publicShow']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('vehicles/{id}/notify', [VehicleNotificationController::class, 'notify']);
 });
 
 Route::prefix('auth')->group(function () {
@@ -37,12 +54,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('vehicles/{id}/qr-code', [VehicleController::class, 'getQrCode']);
     Route::get('vehicles/{vehicle}/storage-fee', [VehicleController::class, 'calculateStorageFee']);
     Route::get('vehicles/{vehicle}/payments', [VehicleController::class, 'getPayments']);
+    Route::post('vehicles/{vehicle}/notify', [VehicleNotificationController::class, 'notify']);
 
     // Owners
     Route::apiResource('owners', OwnerController::class);
     Route::get('owners/{id}/vehicles', [OwnerController::class, 'getVehicles']);
 
-    // Procedures
     Route::apiResource('procedures', ProcedureController::class);
     Route::get('procedures/{id}/documents', [ProcedureController::class, 'getDocuments']);
     Route::post('procedures/{id}/documents', [ProcedureController::class, 'uploadDocuments']);

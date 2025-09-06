@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Edit, MapPin, Calendar, DollarSign, User, FileText, Download, MessageCircle, History } from 'lucide-react';
+import { ArrowLeft, Edit, MapPin, Calendar, DollarSign, FileText, Download, MessageCircle, History, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -31,6 +31,55 @@ export const VehicleDetailPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [storageFee, setStorageFee] = useState<number | null>(null);
 
+  // Fonction pour obtenir les frais de garde journalière selon le type de véhicule
+  const getDailyStorageFee = useCallback((type: VehicleType): number => {
+    switch (type) {
+      case VehicleType.MOTORCYCLE: return 2000;
+      case VehicleType.TRICYCLE: return 3000;
+      case VehicleType.SMALL_VEHICLE: return 5000;
+      case VehicleType.MEDIUM_VEHICLE: return 10000;
+      case VehicleType.LARGE_VEHICLE: return 15000;
+      case VehicleType.SMALL_TRUCK: return 10000;
+      case VehicleType.MEDIUM_TRUCK: return 15000;
+      case VehicleType.LARGE_TRUCK: return 20000;
+      default: return 5000;
+    }
+  }, []);
+
+  // Fonction pour obtenir les frais d'enlèvement selon le type de véhicule
+  const getRemovalFee = useCallback((type: VehicleType): number => {
+    switch (type) {
+      case VehicleType.MOTORCYCLE: return 5000;
+      case VehicleType.TRICYCLE: return 10000;
+      case VehicleType.SMALL_VEHICLE: return 30000;
+      case VehicleType.MEDIUM_VEHICLE: return 50000;
+      case VehicleType.LARGE_VEHICLE: return 80000;
+      case VehicleType.SMALL_TRUCK: return 50000;
+      case VehicleType.MEDIUM_TRUCK: return 120000;
+      case VehicleType.LARGE_TRUCK: return 150000;
+      default: return 30000;
+    }
+  }, []);
+
+  // Calcul des frais totaux selon le barème officiel
+  const calculateTotalStorageFee = useCallback((vehicle: Vehicle | null, days: number) => {
+    if (!vehicle || days <= 0) return 0;
+    const removalFee = getRemovalFee(vehicle.type);
+    const dailyFee = getDailyStorageFee(vehicle.type);
+    return removalFee + (dailyFee * days);
+  }, [getRemovalFee, getDailyStorageFee]);
+
+  // Calcul et mise à jour des frais de garde
+  useEffect(() => {
+    if (vehicle) {
+      const days = Math.floor(
+        (Date.now() - new Date(vehicle.impound_date).getTime()) / (1000 * 60 * 60 * 24)
+      );
+      const fee = calculateTotalStorageFee(vehicle, days);
+      setStorageFee(fee);
+    }
+  }, [vehicle, calculateTotalStorageFee]);
+
   useEffect(() => {
     const fetchVehicleData = async () => {
       if (!id) return;
@@ -52,10 +101,10 @@ export const VehicleDetailPage = () => {
         
         // Fetch procedures for timeline
         try {
-          const procedures = await procedureService.getProceduresByVehicle(id);
+          const response = await procedureService.getProcedures({ vehicle_id: id });
           
           // Convert procedures to timeline events
-          const timelineEvents: TimelineEvent[] = procedures.map(proc => ({
+          const timelineEvents: TimelineEvent[] = response.data.map(proc => ({
             date: proc.created_at,
             action: `Procédure: ${proc.type}`,
             description: proc.notes || `Statut: ${proc.status}`,
@@ -145,9 +194,14 @@ export const VehicleDetailPage = () => {
 
   const getVehicleTypeLabel = (type: VehicleType) => {
     switch (type) {
-      case VehicleType.CAR: return 'Voiture';
-      case VehicleType.MOTORCYCLE: return 'Moto';
-      case VehicleType.TRUCK: return 'Camion';
+      case VehicleType.MOTORCYCLE: return 'Deux-roues motorisés';
+      case VehicleType.TRICYCLE: return 'Tricycles';
+      case VehicleType.SMALL_VEHICLE: return 'Véhicule de 4 à 12 places';
+      case VehicleType.MEDIUM_VEHICLE: return 'Véhicule de 13 à 30 places';
+      case VehicleType.LARGE_VEHICLE: return 'Véhicule à partir de 31 places';
+      case VehicleType.SMALL_TRUCK: return 'Camion inférieur à 5 tonnes';
+      case VehicleType.MEDIUM_TRUCK: return'Camion de 5 à 10 tonnes';
+      case VehicleType.LARGE_TRUCK: return 'Camion supérieur à 10 tonnes';
       case VehicleType.OTHER: return 'Autre';
       default: return type;
     }
@@ -165,9 +219,9 @@ export const VehicleDetailPage = () => {
     return new Date(dateString).toLocaleString('fr-FR');
   };
 
-  const daysSinceImpound = Math.floor(
+  const daysSinceImpound = vehicle ? Math.floor(
     (Date.now() - new Date(vehicle.impound_date).getTime()) / (1000 * 60 * 60 * 24)
-  );
+  ) : 0;
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -210,7 +264,6 @@ export const VehicleDetailPage = () => {
               <Calendar className="h-5 w-5 text-orange-600" />
               <span className="font-medium text-orange-800 dark:text-orange-200">
                 Véhicule en fourrière depuis {daysSinceImpound} jour(s)
-                {storageFee !== null && ` - Frais cumulés: ${formatCurrency(storageFee)}`}
               </span>
             </div>
           </CardContent>
@@ -248,13 +301,6 @@ export const VehicleDetailPage = () => {
                       <p className="font-medium flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
                         {vehicle.location}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Valeur estimée</p>
-                      <p className="font-medium flex items-center gap-1">
-                        <DollarSign className="h-4 w-4" />
-                        {formatCurrency(vehicle.estimated_value)}
                       </p>
                     </div>
                   </div>
@@ -387,53 +433,6 @@ export const VehicleDetailPage = () => {
               </CardContent>
             </Card>
           )}
-
-          {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5" />
-                Actions rapides
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <Button 
-                size="sm" 
-                variant="outline" 
-                className="w-full justify-start"
-                asChild
-              >
-                <Link to={`/app/vehicules/${vehicle.id}/rapport`}>
-                  <Download className="h-4 w-4 mr-2" />
-                  Générer PV
-                </Link>
-              </Button>
-              {hasAnyRole(['admin', 'agent']) && (
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="w-full justify-start"
-                  asChild
-                >
-                  <Link to={`/app/procedures/new?vehicle_id=${vehicle.id}`}>
-                    <FileText className="h-4 w-4 mr-2" />
-                    Nouvelle procédure
-                  </Link>
-                </Button>
-              )}
-              <Button 
-                size="sm" 
-                variant="outline" 
-                className="w-full justify-start"
-                asChild
-              >
-                <Link to={`/app/vehicules/${vehicle.id}/paiement`}>
-                  <DollarSign className="h-4 w-4 mr-2" />
-                  Calculer frais
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

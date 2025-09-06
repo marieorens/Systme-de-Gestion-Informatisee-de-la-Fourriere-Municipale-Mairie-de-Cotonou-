@@ -14,16 +14,15 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vehicle_id')->constrained('vehicles');
-            $table->foreignId('owner_id')->constrained('owners');
             $table->decimal('amount', 12, 2);
-            $table->enum('payment_method', ['cash', 'bank_transfer', 'mobile_money']);
+            $table->enum('payment_method', ['cash', 'bank_transfer', 'mobile_money', 'kkiapay']);
             $table->dateTime('payment_date');
             $table->string('reference')->unique();
             $table->string('description');
             $table->string('receipt_url')->nullable();
             $table->timestamps();
 
-            $table->index(['owner_id', 'vehicle_id', 'payment_date']);
+            $table->index(['vehicle_id', 'payment_date']);
         });
     }
 

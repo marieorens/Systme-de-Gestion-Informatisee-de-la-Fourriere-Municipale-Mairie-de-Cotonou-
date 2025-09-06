@@ -8,9 +8,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from '@/hooks/use-toast';
-import { Vehicle, VehicleType, VehicleStatus } from '@/types';
 import { vehicleService } from '@/services';
 import { VehicleCreateData, VehicleUpdateData } from '@/services/vehicleService';
+import { VehicleType, VehicleStatus } from '@/types/enums';
 
 interface VehicleFormData {
   license_plate: string;
@@ -19,10 +19,10 @@ interface VehicleFormData {
   color: string;
   year: number;
   type: VehicleType;
-  estimated_value: number;
   location: string;
   description?: string;
   owner_name?: string;
+  status: VehicleStatus;
   impound_date?: string;
   photos?: File[];
 }
@@ -33,12 +33,12 @@ const initialFormData: VehicleFormData = {
   model: '',
   color: '',
   year: new Date().getFullYear(),
-  type: 'car',
-  estimated_value: 0,
+  type: VehicleType.MOTORCYCLE,
   location: '',
   description: '',
   owner_name: '',
-  impound_date: new Date().toISOString().split('T')[0], // Today's date in YYYY-MM-DD format
+  status: VehicleStatus.IMPOUNDED,
+  impound_date: new Date().toISOString().split('T')[0], 
   photos: [],
 };
 
@@ -68,10 +68,10 @@ export const VehicleFormPage = () => {
             color: vehicleData.color,
             year: vehicleData.year,
             type: vehicleData.type,
-            estimated_value: vehicleData.estimated_value,
             location: vehicleData.location,
             description: vehicleData.description || '',
             owner_name: vehicleData.owner ? `${vehicleData.owner.first_name} ${vehicleData.owner.last_name}` : '',
+            status: vehicleData.status || VehicleStatus.IMPOUNDED,
             impound_date: vehicleData.impound_date.split('T')[0],
           });
           
@@ -95,7 +95,7 @@ export const VehicleFormPage = () => {
     fetchVehicle();
   }, [id, navigate]);
 
-  const handleInputChange = (field: keyof VehicleFormData, value: any) => {
+  const handleInputChange = (field: keyof VehicleFormData, value: string | number | VehicleType | File[]) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,
@@ -132,7 +132,6 @@ export const VehicleFormPage = () => {
 
     try {
       let response;
-      // Prepare API data
       const vehicleData: VehicleCreateData | VehicleUpdateData = {
         license_plate: formData.license_plate,
         make: formData.make,
@@ -140,15 +139,15 @@ export const VehicleFormPage = () => {
         color: formData.color,
         year: formData.year,
         type: formData.type,
-        estimated_value: formData.estimated_value,
         location: formData.location,
         description: formData.description,
+        status: formData.status,
         impound_date: formData.impound_date || new Date().toISOString().split('T')[0],
       };
 
       if (isEdit && id) {
         // Update existing vehicle
-        response = await vehicleService.updateVehicle(id, vehicleData);
+        response = await vehicleService.publicUpdateVehicleByPlate(id, vehicleData);
       } else {
         // Create new vehicle
         response = await vehicleService.createVehicle(vehicleData as VehicleCreateData);
@@ -167,27 +166,24 @@ export const VehicleFormPage = () => {
       // Clean up all object URLs to prevent memory leaks
       photoPreviewUrls.forEach(url => URL.revokeObjectURL(url));
       
-      navigate('/app/vehicules');
-    } catch (error: any) {
+      // Rediriger vers la page de recherche du propriétaire
+      navigate(`/app/vehicules/${response.id}/notify`, {
+        state: { 
+          licensePlate: formData.license_plate,
+          vehicleId: response.id
+        }
+      });
+    } catch (error) {
       console.error('Error saving vehicle:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Une erreur est survenue lors de l\'enregistrement.';
       toast({
         title: 'Erreur',
-        description: error.response?.data?.message || 'Une erreur est survenue lors de l\'enregistrement.',
+        description: errorMessage,
         variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const formatCurrency = (value: string) => {
-    const numValue = parseFloat(value.replace(/[^\d]/g, ''));
-    return isNaN(numValue) ? '' : numValue.toLocaleString('fr-FR');
-  };
-
-  const handleValueChange = (value: string) => {
-    const numValue = parseFloat(value.replace(/[^\d]/g, ''));
-    handleInputChange('estimated_value', isNaN(numValue) ? 0 : numValue);
   };
 
   if (isLoading) {
@@ -244,10 +240,11 @@ export const VehicleFormPage = () => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="car">Voiture</SelectItem>
-                    <SelectItem value="motorcycle">Moto</SelectItem>
-                    <SelectItem value="truck">Camion</SelectItem>
-                    <SelectItem value="other">Autre</SelectItem>
+                    {Object.values(VehicleType).map((type) => (
+                      <SelectItem key={type} value={type}>
+                        {type}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -300,25 +297,17 @@ export const VehicleFormPage = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="location">Localisation en fourrière *</Label>
-                <Input
-                  id="location"
-                  placeholder="Zone A-12, Zone B-08, etc."
-                  value={formData.location}
-                  onChange={(e) => handleInputChange('location', e.target.value)}
-                  required
-                />
+                <Select value={formData.location} onValueChange={(value: string) => handleInputChange('location', value)}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Zone A">Zone A</SelectItem>
+                    <SelectItem value="Zone B">Zone B</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="estimated_value">Valeur estimée (FCFA) *</Label>
-                <Input
-                  id="estimated_value"
-                  placeholder="5,000,000"
-                  value={formatCurrency(formData.estimated_value.toString())}
-                  onChange={(e) => handleValueChange(e.target.value)}
-                  required
-                />
-              </div>
 
               <div className="space-y-2">
                 <Label htmlFor="impound_date">Date de mise en fourrière *</Label>
@@ -343,7 +332,7 @@ export const VehicleFormPage = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description (optionnel)</Label>
+              <Label htmlFor="description">Raison/Infraction commise (optionnelle)</Label>
               <Textarea
                 id="description"
                 placeholder="État du véhicule, dommages observés, etc."

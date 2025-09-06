@@ -11,12 +11,14 @@ import { toast } from '@/hooks/use-toast';
 import { vehicleService, paymentService } from '@/services';
 import { Vehicle } from '@/types';
 import { VehicleStatus, PaymentMethod } from '@/types/enums';
+import { calculateImpoundFees } from '@/lib/utils';
 
 interface VehicleWithFees extends Vehicle {
   storageFee?: {
     days: number;
     daily_rate: number;
     total_fee: number;
+    removal_fee?: number;
   };
 }
 
@@ -46,174 +48,80 @@ export const VehicleLookupPage = () => {
   
   const downloadReceipt = useCallback(async () => {
     if (!paymentId) {
-      console.error('Aucun ID de paiement disponible pour télécharger le reçu');
-      
-      const storedPaymentId = sessionStorage.getItem('last_payment_id');
-      if (storedPaymentId) {
-        console.log('Utilisation de l\'ID de paiement stocké:', storedPaymentId);
-        setPaymentId(storedPaymentId);
-        toast({
-          title: 'Récupération du paiement',
-          description: 'Nous essayons de récupérer les informations de votre paiement...',
-        });
-      } else {
-        toast({
-          title: 'Erreur de téléchargement',
-          description: 'Impossible de trouver les informations de paiement. Veuillez contacter la fourrière.',
-          variant: 'destructive',
-        });
-        return;
-      }
+      toast({
+        title: 'Erreur de téléchargement',
+        description: 'Impossible de trouver les informations de paiement. Veuillez contacter la fourrière.',
+        variant: 'destructive',
+      });
+      return;
     }
-    
-    console.log('Téléchargement du reçu pour le paiement:', paymentId);
     setIsGeneratingReceipt(true);
-    
     try {
       const receiptData = await paymentService.generateReceipt(paymentId);
-      console.log('Reçu généré avec succès:', receiptData);
-      
-      if (!receiptData || !receiptData.receipt_url) {
-        throw new Error('Reçu généré mais URL manquante');
+      if (!receiptData || !receiptData.receipt_url || !receiptData.receipt_url.endsWith('.pdf')) {
+        throw new Error('Le backend n’a pas retourné une URL PDF valide');
       }
-      
+      const response = await fetch(receiptData.receipt_url);
+      if (!response.ok) throw new Error('Erreur lors du téléchargement du reçu');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = receiptData.receipt_url;
-      link.download = `recu-paiement-fourriere-${searchResult?.license_plate || 'inconnu'}.pdf`;
+      link.href = url;
+      const filename = receiptData.receipt_url.split('/').pop();
+      link.download = filename || `recu-paiement-fourriere.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
-      if (searchResult?.owner?.email) {
-        try {
-          let pdfBase64 = receiptData.receipt_url;
-          if (receiptData.receipt_url.startsWith('data:application/pdf;base64,')) {
-            pdfBase64 = receiptData.receipt_url.split(',')[1];
-          }
-          
-          await paymentService.sendReceiptByEmail(paymentId, searchResult.owner.email, pdfBase64)
-            .catch(emailError => {
-              console.error('Erreur lors de l\'envoi du reçu par email:', emailError);
-            });
-            
-          toast({
-            title: 'Reçu envoyé par email',
-            description: `Votre reçu a également été envoyé à l'adresse ${searchResult.owner.email}`,
-          });
-        } catch (emailError) {
-          console.error('Erreur lors de l\'envoi du reçu par email:', emailError);
-          // On ne montre pas d'erreur à l'utilisateur si l'envoi d'email échoue
-          // car il a déjà son reçu téléchargé
-        }
-      }
-      
+      window.URL.revokeObjectURL(url);
       toast({
         title: 'Reçu téléchargé',
-        description: 'Votre reçu a été téléchargé avec succès.',
+        description: 'Votre reçu a été téléchargé.',
         variant: 'success',
       });
-      
     } catch (error) {
-      console.error('Error downloading receipt:', error);
-      
+      console.error('Erreur lors du téléchargement du reçu:', error);
       toast({
-        title: 'Problème avec le téléchargement',
-        description: 'Nous tentons de générer le reçu localement...',
-        variant: 'warning',
+        title: 'Erreur de téléchargement',
+        description: 'Impossible de générer le reçu. Veuillez contacter la fourrière.',
+        variant: 'destructive',
       });
-      
-      try {
-        // Essayer de récupérer les informations nécessaires pour la génération locale
-        const payment = await paymentService.getPayment(paymentId);
-        const vehicleData = searchResult || await vehicleService.getVehicle(payment.vehicle_id);
-        const feeData = await vehicleService.getStorageFee(vehicleData.id);
-        
-        // Importer dynamiquement le générateur de reçu
-        const { generateReceiptPDF } = await import('@/utils/receiptGenerator');
-        
-        // Générer le reçu localement
-        const pdfUrl = generateReceiptPDF({
-          payment,
-          vehicle: vehicleData,
-          daysCount: feeData.days,
-          dailyRate: feeData.daily_rate
-        });
-        
-        const link = document.createElement('a');
-        link.href = await pdfUrl;
-        link.download = `recu-paiement-fourriere-${vehicleData.license_plate || 'inconnu'}.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        toast({
-          title: 'Reçu généré localement',
-          description: 'Votre reçu a été généré et téléchargé avec succès.',
-          variant: 'success',
-        });
-        
-        // Ne pas rediriger l'utilisateur
-      } catch (fallbackError) {
-        console.error('Error generating local receipt:', fallbackError);
-        toast({
-          title: 'Erreur de téléchargement',
-          description: 'Impossible de générer le reçu. Veuillez contacter la fourrière.',
-          variant: 'destructive',
-        });
-      }
     } finally {
       setIsGeneratingReceipt(false);
     }
   }, [paymentId, searchResult]);
   
-  // Effet pour gérer le retour depuis la passerelle de paiement via l'URL
+  
   useEffect(() => {
-    // Récupérer les paramètres de l'URL
     const urlParams = new URLSearchParams(window.location.search);
     const plate = urlParams.get('plate');
     const paymentStatus = urlParams.get('payment_status');
     
     console.log('URL params:', plate, paymentStatus);
     
-    // Si nous revenons d'un paiement réussi
     if (plate && paymentStatus === 'success' && !paymentCompleted) {
-      // Essayer de récupérer l'ID de paiement stocké dans la session
-      const lastPaymentId = sessionStorage.getItem('last_payment_id');
-      
-      console.log('Last payment ID from session:', lastPaymentId);
-      if (lastPaymentId) {
-        setPaymentId(lastPaymentId);
-      }
-      
-      // Rechercher automatiquement le véhicule
       setPlateNumber(plate);
       setHasSearched(true);
       
-      // Effectuer la recherche automatiquement
       const searchVehicle = async () => {
         setIsLoading(true);
         try {
           const vehicleData = await vehicleService.getVehicleByLicensePlate(plate);
           if (vehicleData) {
-            // Calculer les frais
             const impoundDate = new Date(vehicleData.impound_date);
             const currentDate = new Date();
             const diffTime = Math.abs(currentDate.getTime() - impoundDate.getTime());
-            const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            const dailyRate = 2000;
-            const totalFee = Math.max(days, 1) * dailyRate;
-            
-            // Définir le résultat
-            setSearchResult({
+            const days = Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
+            const fees = calculateImpoundFees(vehicleData.type, days);
+                        setSearchResult({
               ...vehicleData,
               storageFee: {
-                days: Math.max(days, 1),
-                daily_rate: dailyRate,
-                total_fee: totalFee
+                days: days,
+                daily_rate: fees.dailyFee,
+                total_fee: fees.total,
+                removal_fee: fees.removalFee
               }
             });
             
-            // Marquer comme payé
             setPaymentCompleted(true);
             setHasSearched(true);
             
@@ -231,15 +139,12 @@ export const VehicleLookupPage = () => {
       };
       
       searchVehicle();
-      
-      // Nettoyer les paramètres d'URL pour éviter de retraiter ce paiement lors d'un rafraîchissement
-      window.history.replaceState({}, document.title, window.location.pathname);
+            window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [paymentCompleted]);
 
   
   useEffect(() => { 
-    // Fonction pour nettoyer les ressources
     const cleanupResources = () => {
       const timeoutId = sessionStorage.getItem('paymentTimeoutId');
       if (timeoutId) {
@@ -249,136 +154,137 @@ export const VehicleLookupPage = () => {
       setIsPaying(false);
     };
     
-    // Gestionnaire de succès optimisé
     const successHandler = async (response: PaymentResponse) => {
-      console.log('KKiaPay success callback:', response);
-      
-      // Nettoyage des ressources
-      cleanupResources();
-      
-      // Vérifier si la réponse contient un ID de transaction valide
-      if (!response || !response.transactionId) {
-        console.error('Réponse de paiement invalide:', response);
+  console.log('KKiaPay success callback:', response);
+
+  // Nettoyage des ressources
+  cleanupResources();
+
+  // Vérifier si la réponse contient un ID de transaction valide
+  if (!response || !response.transactionId) {
+    console.error('Réponse de paiement invalide:', response);
+    toast({
+      title: 'Erreur de paiement',
+      description: 'Nous n\'avons pas pu confirmer votre paiement. Veuillez réessayer.',
+      variant: 'destructive',
+    });
+    return;
+  }
+
+  try {
+    // Traiter le paiement seulement si searchResult existe
+    if (!searchResult) {
+      throw new Error('Informations du véhicule manquantes');
+    }
+
+    const paymentAmount = searchResult.storageFee?.total_fee || 0;
+
+    const paymentData = {
+      vehicle_id: searchResult.id,
+      amount: paymentAmount,
+      method: PaymentMethod.MOBILE_MONEY,
+      reference_number: response.transactionId,
+      description: `Paiement en ligne via KKiaPay pour le véhicule ${searchResult.license_plate}`
+    };
+
+    console.log('Enregistrement du paiement:', paymentData);
+
+    let publicPayment = null;
+    try {
+      publicPayment = await paymentService.createKkiapayPayment({
+        vehicle_id: searchResult.id,
+        amount: paymentAmount,
+        payment_method: "kkiapay",
+        id: response.transactionId,
+        description: `Paiement KKiaPay pour le véhicule ${searchResult.license_plate}`
+      });
+      console.log('Réponse API KKiaPay:', publicPayment);
+      if (!publicPayment || !publicPayment.id) {
         toast({
-          title: 'Erreur de paiement',
-          description: 'Nous n\'avons pas pu confirmer votre paiement. Veuillez réessayer.',
+          title: 'Erreur KKiaPay',
+          description: `La réponse de l'API ne contient pas d'identifiant de paiement. Détail: ${JSON.stringify(publicPayment)}`,
           variant: 'destructive',
         });
-        return;
+        throw new Error('Réponse API KKiaPay invalide');
       }
-      
-      try {
-        // Traiter le paiement seulement si searchResult existe
-        if (!searchResult) {
-          throw new Error('Informations du véhicule manquantes');
-        }
-        
-        // Récupérer le montant actuel des frais
-        const paymentAmount = searchResult.storageFee?.total_fee || 0;
-        
-        // Préparer les données de paiement
-        const paymentData = {
-          vehicle_id: searchResult.id,
-          amount: paymentAmount,
-          method: PaymentMethod.MOBILE_MONEY,
-          reference_number: response.transactionId,
-          description: `Paiement en ligne via KKiaPay pour le véhicule ${searchResult.license_plate}`
-        };
-        
-        // Enregistrer le paiement dans le système
-        console.log('Enregistrement du paiement:', paymentData);
-        const payment = await paymentService.createPayment(paymentData);
-        
-        // Mettre à jour l'état local
-        setPaymentId(payment.id);
-        setPaymentCompleted(true);
-        
-        // Stocker les informations pour la récupération après redirection
-        console.log('Stockage du payment ID dans sessionStorage:', payment.id);
-        sessionStorage.setItem('last_payment_id', payment.id);
-        sessionStorage.setItem('last_payment_vehicle', searchResult.license_plate);
-        
-        // Stocker des informations supplémentaires pour la génération de reçu hors ligne
-        sessionStorage.setItem('last_payment_amount', searchResult.storageFee?.total_fee.toString() || '0');
-        sessionStorage.setItem('last_payment_days', searchResult.storageFee?.days.toString() || '1');
-        sessionStorage.setItem('last_payment_daily_rate', searchResult.storageFee?.daily_rate.toString() || '2000');
-        sessionStorage.setItem('last_payment_date', new Date().toISOString());
-        
-        // Mettre à jour les informations du véhicule
-        try {
-          await vehicleService.updateVehicle(searchResult.id, {
-            // Conserver le statut IMPOUNDED mais ajouter une indication que les frais sont payés
-            description: `${searchResult.description || ''} [FRAIS PAYÉS LE ${new Date().toLocaleDateString('fr-FR')}]`
-          });
-          
-          console.log('Véhicule mis à jour avec succès');
-        } catch (updateError) {
-          console.error('Erreur lors de la mise à jour du véhicule:', updateError);
-          // Ne pas bloquer le processus si la mise à jour échoue
-        }
-        
-        // Informer l'utilisateur
+    } catch (err) {
+      console.error('Erreur lors de l\'enregistrement public KKiaPay:', err);
+      toast({
+        title: 'Erreur KKiaPay',
+        description: `Le paiement KKiaPay n'a pas pu être enregistré côté public. Détail: ${err?.message || err}`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Mettre à jour l'état local avec l'ID du paiement public
+    setPaymentId(publicPayment.id);
+    setPaymentCompleted(true);
+
+    
+    try {
+      await vehicleService.publicUpdateVehicleByPlate(searchResult.license_plate, {
+        status: VehicleStatus.CLAIMED,
+        description: `${searchResult.description || ''} [FRAIS PAYÉS LE ${new Date().toLocaleDateString('fr-FR')}]`
+      });
+      console.log('Véhicule mis à jour avec succès');
+    } catch (updateError) {
+      console.error('Erreur lors de la mise à jour du véhicule:', updateError);
+    }
+
+    // Générer et télécharger le reçu directement
+    try {
+      const receiptData = await paymentService.generateReceipt(publicPayment.id);
+      if (receiptData && receiptData.receipt_url) {
+        const link = document.createElement('a');
+        link.href = receiptData.receipt_url;
+        link.download = `recu-paiement-fourriere-${searchResult.license_plate || 'inconnu'}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         toast({
           title: 'Paiement réussi',
-          description: 'Redirection vers la page de confirmation...',
+          description: 'Votre reçu a été téléchargé avec succès.',
           variant: 'success',
-          duration: 5000, // Afficher plus longtemps (5 secondes)
         });
-        
-        // Redirection vers la page de confirmation avec l'ID du paiement
-        console.log('Préparation de la redirection vers:', `/paiement/confirmation?payment_id=${payment.id}`);
-        
-        // Utiliser setTimeout pour permettre à l'utilisateur de voir le message
-        setTimeout(() => {
-          const redirectUrl = `/paiement/confirmation?payment_id=${payment.id}`;
-          console.log('Redirection vers:', redirectUrl);
-          window.location.href = redirectUrl;
-        }, 3000); // Attendre 3 secondes avant de rediriger
-      } catch (error) {
-        console.error('Erreur lors de l\'enregistrement du paiement:', error);
-        
-        // Vérifier si nous avons l'ID de transaction pour permettre une vérification manuelle
-        if (response && response.transactionId) {
-          // Même en cas d'échec d'enregistrement dans notre système, nous stockons les informations du paiement
-          // pour que l'utilisateur puisse accéder au reçu
-          const transactionId = response.transactionId;
-          
-          // Créer un ID temporaire pour ce paiement (basé sur la transaction KKiaPay)
-          const tempPaymentId = `kkiapay_${transactionId}_${Date.now()}`;
-          console.log('Stockage d\'un ID de paiement temporaire:', tempPaymentId);
-          
-          // Stocker les informations essentielles
-          sessionStorage.setItem('last_payment_id', tempPaymentId);
-          sessionStorage.setItem('last_payment_transaction_id', transactionId);
-          sessionStorage.setItem('last_payment_amount', searchResult.storageFee?.total_fee.toString() || '0');
-          sessionStorage.setItem('last_payment_vehicle', searchResult.license_plate);
-          sessionStorage.setItem('last_payment_date', new Date().toISOString());
-          
-          // Définir comme complété pour permettre les redirections de secours
-          setPaymentCompleted(true);
-          
-          toast({
-            title: 'Paiement traité',
-            description: `Votre paiement a été effectué (réf: ${transactionId}). Nous vous redirigerons vers votre reçu.`,
-            variant: 'warning',
-            duration: 10000, // Afficher plus longtemps pour permettre à l'utilisateur de noter la référence
-          });
-          
-          // Redirection avec retard pour permettre à l'utilisateur de voir le message
-          setTimeout(() => {
-            const redirectUrl = `/paiement/confirmation?payment_id=${tempPaymentId}&transaction_id=${transactionId}`;
-            console.log('Redirection de secours vers:', redirectUrl);
-            window.location.href = redirectUrl;
-          }, 5000);
-        } else {
-          toast({
-            title: 'Erreur d\'enregistrement',
-            description: 'Le paiement a été effectué mais nous n\'avons pas pu l\'enregistrer. Veuillez contacter la fourrière.',
-            variant: 'destructive',
-          });
-        }
+      } else {
+        toast({
+          title: 'Paiement réussi',
+          description: 'Impossible de générer le reçu. Veuillez contacter la fourrière.',
+          variant: 'warning',
+        });
       }
-    };
+    } catch (receiptError) {
+      toast({
+        title: 'Paiement réussi',
+        description: 'Erreur lors de la génération du reçu.',
+        variant: 'warning',
+      });
+    }
+  } catch (error) {
+    console.error('Erreur lors de l\'enregistrement du paiement:', error);
+
+    if (response && response.transactionId) {
+      const transactionId = response.transactionId;
+      // On considère le paiement comme validé même si l'ID n'est pas retourné
+      setPaymentCompleted(true);
+      setPaymentId(transactionId);
+      toast({
+        title: 'Paiement traité',
+        description: `Votre paiement a été effectué (réf: ${transactionId}). Vous pouvez télécharger votre quittance ci-dessous.`,
+        variant: 'success',
+        duration: 10000,
+      });
+    } else {
+      toast({
+        title: 'Paiement traité',
+        description: 'Le paiement a été effectué. Vous pouvez télécharger votre quittance ci-dessous.',
+        variant: 'success',
+        duration: 10000,
+      });
+    }
+  }
+};
 
     // Gestionnaire d'échec optimisé
     const failureHandler = (error: unknown) => {
@@ -395,18 +301,14 @@ export const VehicleLookupPage = () => {
       });
     };
     
-    // Gestionnaire de fermeture optimisé
     const closeHandler = () => {
       console.log('Payment widget closed');
-      
+
       cleanupResources();
-            if (paymentCompleted) {
+      if (paymentCompleted) {
         console.log('Payment was completed, checking if we need to redirect');
-        const storedPaymentId = sessionStorage.getItem('last_payment_id');
-        if (storedPaymentId) {
-          console.log('Redirecting to confirmation page with stored payment ID');
-          window.location.href = `/paiement/confirmation?payment_id=${storedPaymentId}`;
-        }
+  
+      
       } else {
         console.log('Payment was likely canceled by user');
       }
@@ -452,28 +354,25 @@ export const VehicleLookupPage = () => {
       // Only show vehicles that are in the pound (status is 'impounded')
       if (vehicleData && vehicleData.status === VehicleStatus.IMPOUNDED) {
         try {
-          // Calcul direct des jours de fourrière
+          // Calcul du nombre de jours
           const impoundDate = new Date(vehicleData.impound_date);
           const currentDate = new Date();
           const diffTime = Math.abs(currentDate.getTime() - impoundDate.getTime());
-          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          const days = Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1); // Au moins 1 jour
           
-          // Tarif journalier fixe
-          const dailyRate = 2000; // 2000 FCFA par jour
+          // Utiliser la grille tarifaire selon le type de véhicule
+          const fees = calculateImpoundFees(vehicleData.type, days);
           
-          // Calcul du total (jours * tarif)
-          const days = Math.max(diffDays, 1); // Au moins 1 jour
-          const totalFee = days * dailyRate;
-          
-          console.log(`Jours en fourrière: ${days}, tarif journalier: ${dailyRate}, total: ${totalFee}`);
+          console.log(`Jours en fourrière: ${days}, type: ${vehicleData.type}, frais d'enlèvement: ${fees.removalFee}, tarif journalier: ${fees.dailyFee}, total: ${fees.total}`);
           
           // Définir le résultat avec les frais calculés
           setSearchResult({
             ...vehicleData,
             storageFee: {
               days: days,
-              daily_rate: dailyRate,
-              total_fee: totalFee
+              daily_rate: fees.dailyFee,
+              total_fee: fees.total,
+              removal_fee: fees.removalFee
             }
           });
           
@@ -568,18 +467,9 @@ export const VehicleLookupPage = () => {
         amount: paymentAmount,
         key: "0a9be610652111efbf02478c5adba4b8",
         sandbox: true,
-        phone: searchResult.owner?.phone || '',
-        email: searchResult.owner?.email || '',
-        theme: "green",
+        theme: "blue",
         position: "center",
-        callback: `${baseUrl}/paiement/confirmation`, 
-        data: JSON.stringify({
-          vehicleId: searchResult.id,
-          vehicleInfo: searchResult.license_plate,
-          days: searchResult.storageFee.days,
-          dailyRate: searchResult.storageFee.daily_rate
-        }),
-      });
+     });
     } catch (error) {
       console.error('Error opening payment widget:', error);
       setIsPaying(false);
@@ -623,7 +513,7 @@ export const VehicleLookupPage = () => {
       <main className="max-w-4xl mx-auto px-6 py-12">
         <div className="text-center mb-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Consultez l'état de votre véhicule
+            Consultez votre redevance 
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Entrez votre numéro d'immatriculation pour vérifier si votre véhicule se trouve en fourrière municipale
@@ -662,7 +552,6 @@ export const VehicleLookupPage = () => {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2">
-                      <Car className="h-5 w-5" />
                       {searchResult.license_plate}
                     </CardTitle>
                     {getStatusBadge(searchResult.status)}
@@ -687,10 +576,18 @@ export const VehicleLookupPage = () => {
                         <p className="text-lg font-semibold text-primary">
                           {Number(searchResult.storageFee?.total_fee).toLocaleString()} FCFA
                         </p>
-                        <p className="text-xs text-muted-foreground">
-                          {Number(searchResult.storageFee?.days)} jours × {' '}
-                          {Number(searchResult.storageFee?.daily_rate).toLocaleString()} FCFA/jour
-                        </p>
+                        <div className="text-xs text-muted-foreground space-y-1">
+                          {searchResult.storageFee?.removal_fee !== undefined && (
+                            <p>
+                              Frais d'enlèvement : {Number(searchResult.storageFee.removal_fee).toLocaleString()} FCFA
+                            </p>
+                          )}
+                          <p>
+                            Frais de garde : {Number(searchResult.storageFee?.days)} jours × {' '}
+                            {Number(searchResult.storageFee?.daily_rate).toLocaleString()} FCFA/jour = {' '}
+                            {Number((searchResult.storageFee?.days || 0) * (searchResult.storageFee?.daily_rate || 0)).toLocaleString()} FCFA
+                          </p>
+                        </div>
                       </div>
                     </div>
                     {searchResult.owner && (
@@ -743,9 +640,9 @@ export const VehicleLookupPage = () => {
                     ) : (
                       <div className="bg-green-50 p-4 rounded-lg space-y-4">
                         <div>
-                          <h4 className="font-semibold text-green-800 mb-2">✅ Paiement réussi</h4>
+                          <h4 className="font-semibold text-green-800 mb-2"> Paiement réussi</h4>
                           <p className="text-sm text-green-700 mb-3">
-                            Votre paiement de <strong>{Number(searchResult.storageFee?.total_fee).toLocaleString()} FCFA</strong> a été traité avec succès. Cliquez sur le bouton ci-dessous pour télécharger votre reçu.
+                            Votre paiement de <strong>{Number(searchResult.storageFee?.total_fee).toLocaleString()} FCFA</strong> a été traité avec succès. Cliquez sur le bouton ci-dessous pour télécharger votre quittance.
                           </p>
                         </div>
                         
@@ -763,7 +660,7 @@ export const VehicleLookupPage = () => {
                           ) : (
                             <>
                               <Download className="h-4 w-4 mr-2" />
-                              Télécharger le reçu
+                              Télécharger la quittance
                             </>
                           )}
                         </Button>
@@ -774,14 +671,14 @@ export const VehicleLookupPage = () => {
                       <h4 className="font-semibold text-green-900 mb-2">Documents requis pour la récupération</h4>
                       <ul className="text-sm text-green-700 space-y-1 list-disc list-inside">
                         <li>Pièce d'identité du propriétaire</li>
-                        <li><strong>Reçu de paiement des frais de fourrière</strong></li>
+                        <li><strong>Quittance de paiement des frais de fourrière</strong></li>
                         <li>Carte grise du véhicule</li>
                         <li>Procuration légalisée (si récupération par un tiers)</li>
                       </ul>
                     </div>
 
                     <div className="bg-orange-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-orange-900 mb-2">📍 Adresse de la fourrière</h4>
+                      <h4 className="font-semibold text-orange-900 mb-2">Adresse de la fourrière</h4>
                       <div className="text-sm text-orange-700 space-y-1">
                         <p><strong>Fourrière Municipale de Cotonou</strong></p>
                         <p> Tél: +229 21 30 04 00</p>

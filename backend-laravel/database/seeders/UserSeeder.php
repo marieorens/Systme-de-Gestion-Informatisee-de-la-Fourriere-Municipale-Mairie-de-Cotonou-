@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
 use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,36 +14,22 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Admin User',
+            'name' => 'Responsable de Fourrière',
             'email' => 'admin@example.com',
             'password' => Hash::make('password123'),
             'role' => UserRole::ADMIN,
         ]);
 
         User::create([
-            'name' => 'Agent One',
-            'email' => 'agent1@example.com',
+            'name' => 'Régisseur auxiliaire',
+            'email' => 'regisseur@example.com',
             'password' => Hash::make('password123'),
             'role' => UserRole::AGENT,
         ]);
 
         User::create([
-            'name' => 'Agent Two',
-            'email' => 'agent2@example.com',
-            'password' => Hash::make('password123'),
-            'role' => UserRole::AGENT,
-        ]);
-
-        User::create([
-            'name' => 'Agent Three',
-            'email' => 'agent3@example.com',
-            'password' => Hash::make('password123'),
-            'role' => UserRole::AGENT,
-        ]);
-
-        User::create([
-            'name' => 'Finance User',
-            'email' => 'finance@example.com',
+            'name' => 'Caissier',
+            'email' => 'caissier@example.com',
             'password' => Hash::make('password123'),
             'role' => UserRole::FINANCE,
         ]);

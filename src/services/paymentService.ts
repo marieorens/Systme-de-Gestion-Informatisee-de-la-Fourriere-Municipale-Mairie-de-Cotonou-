@@ -41,6 +41,20 @@ export interface PaymentPaginatedResponse {
 
 
 const paymentService = {
+  getPublicPayment: async (id: string): Promise<Payment> => {
+    const response = await api.get(`/public/payments/${id}`);
+    return response.data.data || response.data.payment || response.data;
+  },
+  createKkiapayPayment: async (data: {
+    id: string;
+    vehicle_id: string;
+    amount: number;
+    payment_method: string;
+    description?: string;
+  }): Promise<Payment> => {
+    const response = await api.post('/public/payments/kkiapay', data);
+    return response.data.payment;
+  },
  
   getPayments: async (filters?: PaymentFilters): Promise<PaymentPaginatedResponse> => {
     const response = await api.get(endpoints.payments, { params: filters });
@@ -74,12 +88,14 @@ const paymentService = {
  
   generateReceipt: async (id: string): Promise<{ receipt_url: string }> => {
     try {
-      // Tente d'abord la route publique
       const response = await api.get(endpoints.generatePublicReceipt(id));
       return response.data;
     } catch (error) {
       console.log('Generating receipt locally due to API error:', error);
-      const payment = await paymentService.getPayment(id);
+  const payment = await paymentService.getPublicPayment(id);
+      if (!payment.receipt_number) {
+        payment.receipt_number = payment.reference_number || `PMT-${Date.now()}`;
+      }
       const vehicleResponse = await api.get(`/vehicles/${payment.vehicle_id}`);
       const vehicle = vehicleResponse.data.data;
       const feeResponse = await api.get(`/vehicles/${payment.vehicle_id}/storage-fee`);
@@ -95,7 +111,6 @@ const paymentService = {
     }
   },
   
-  // Méthode pour envoyer le reçu par email
   sendReceiptByEmail: async (paymentId: string, email: string, pdfBase64?: string): Promise<void> => {
     const payload = {
       email,

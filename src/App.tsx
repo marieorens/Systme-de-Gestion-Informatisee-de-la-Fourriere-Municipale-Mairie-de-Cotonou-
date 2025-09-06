@@ -13,6 +13,7 @@ import { DashboardPage } from "@/pages/DashboardPage";
 import { VehiclesListPage } from "@/pages/VehiclesListPage";
 import { VehicleFormPage } from "@/pages/VehicleFormPage";
 import { VehicleDetailPage } from "@/pages/VehicleDetailPage";
+import { VehicleNotifyPage } from "@/pages/VehicleNotifyPage";
 import { OwnersPage } from "@/pages/OwnersPage";
 import { PaymentSuccessPage } from "@/pages/PaymentSuccessPage";
 import { ProceduresPage } from "@/pages/ProceduresPage";
@@ -70,6 +71,11 @@ const App = () => (
               </ProtectedRoute>
             } />
             <Route path="vehicules/:id" element={<VehicleDetailPage />} />
+            <Route path="vehicules/:id/notify" element={
+              <ProtectedRoute roles={['admin', 'agent']}>
+                <VehicleNotifyPage />
+              </ProtectedRoute>
+            } />
             <Route path="proprietaires" element={<OwnersPage />} />
             <Route path="procedures" element={
               <ProtectedRoute roles={['admin', 'agent', 'finance']}>

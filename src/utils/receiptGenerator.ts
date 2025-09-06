@@ -40,8 +40,8 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
   
 
   doc.setProperties({
-    title: `Reçu de paiement - ${vehicle.license_plate}`,
-    subject: 'Reçu de paiement des frais de fourrière',
+    title: `Quittance de paiement - ${vehicle.license_plate}`,
+    subject: 'Quittance de paiement des frais de fourrière',
     author: 'Mairie de Cotonou',
     creator: 'Système de Gestion de Fourrière'
   });
@@ -70,7 +70,7 @@ export const generateReceiptPDF = async (data: ReceiptData): Promise<string> => 
   
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.setFontSize(24);
-  doc.text('REÇU DE PAIEMENT', 105, 45, { align: 'center' });
+  doc.text('QUITTANCE DE PAIEMENT', 105, 45, { align: 'center' });
   
   doc.setDrawColor(accentColor[0], accentColor[1], accentColor[2]);
   doc.setLineWidth(1);

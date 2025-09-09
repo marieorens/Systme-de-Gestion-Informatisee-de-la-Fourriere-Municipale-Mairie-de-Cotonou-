@@ -15,12 +15,6 @@ import { notificationService } from '@/services';
 
 const notificationTemplates = [
   {
-    id: 'entry',
-    name: 'Mise en fourrière',
-    subject: 'Véhicule mis en fourrière',
-    content: 'Votre véhicule {plateNumber} a été mis en fourrière le {date}. Vous disposez de 15 jours pour le récupérer.'
-  },
-  {
     id: 'reminder',
     name: 'Rappel délai',
     subject: 'Rappel - Véhicule en fourrière',
@@ -112,7 +106,6 @@ export const NotificationsPage = () => {
       <Tabs defaultValue="send" className="space-y-6">
         <TabsList>
           <TabsTrigger value="send">Envoyer</TabsTrigger>
-          <TabsTrigger value="history">Historique</TabsTrigger>
           <TabsTrigger value="templates">Modèles</TabsTrigger>
         </TabsList>
 
@@ -134,7 +127,6 @@ export const NotificationsPage = () => {
                     <SelectContent>
                       <SelectItem value={NotificationChannel.SMS}>SMS</SelectItem>
                       <SelectItem value={NotificationChannel.EMAIL}>Email</SelectItem>
-                      <SelectItem value={NotificationChannel.IN_APP}>Notification in-app</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -172,10 +164,8 @@ export const NotificationsPage = () => {
                       <SelectValue placeholder="Sélectionner les destinataires" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tous les propriétaires</SelectItem>
                       <SelectItem value="overdue">Délai dépassé</SelectItem>
                       <SelectItem value="expiring">Délai proche</SelectItem>
-                      <SelectItem value="specific">Sélection spécifique</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

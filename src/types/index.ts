@@ -77,9 +77,10 @@ export interface Payment {
   user_id?: string;
   user?: User;
   amount: number;
-  method: PaymentMethod;
-  reference_number?: string;
-  receipt_number: string;
+  payment_date?: string;
+  payment_method?: string;
+  reference?: string;
+  receipt_url?: string;
   description?: string;
   created_at: string;
   updated_at: string;

@@ -74,7 +74,6 @@ export const SettingsPage = () => {
           <TabsTrigger value="general" className="text-xs sm:text-sm">Général</TabsTrigger>
           <TabsTrigger value="tariffs" className="text-xs sm:text-sm">Tarifs</TabsTrigger>
           <TabsTrigger value="notifications" className="text-xs sm:text-sm">Notifications</TabsTrigger>
-          <TabsTrigger value="documents" className="text-xs sm:text-sm">Documents</TabsTrigger>
         </TabsList>
 
         {/* General Settings */}
@@ -311,50 +310,6 @@ export const SettingsPage = () => {
                   </div>
                 </div>
               )}
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        {/* Documents Settings */}
-        <TabsContent value="documents" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="w-5 h-5" />
-                Modèles de documents
-              </CardTitle>
-              <CardDescription>Configuration des modèles PDF et notifications</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <Label htmlFor="receiptTemplate">Modèle de reçu</Label>
-                <Textarea
-                  id="receiptTemplate"
-                  rows={4}
-                  value={settings.documents.receiptTemplate}
-                  onChange={(e) => handleTemplateChange('receiptTemplate', e.target.value)}
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="pvTemplate">Modèle de procès-verbal</Label>
-                <Textarea
-                  id="pvTemplate"
-                  rows={4}
-                  value={settings.documents.pvTemplate}
-                  onChange={(e) => handleTemplateChange('pvTemplate', e.target.value)}
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="noticeTemplate">Modèle d'avis</Label>
-                <Textarea
-                  id="noticeTemplate"
-                  rows={4}
-                  value={settings.documents.noticeTemplate}
-                  onChange={(e) => handleTemplateChange('noticeTemplate', e.target.value)}
-                />
-              </div>
             </CardContent>
           </Card>
         </TabsContent>

@@ -149,10 +149,7 @@ export const UsersPage = () => {
       </div>
 
       <Tabs defaultValue="users" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="users">Utilisateurs</TabsTrigger>
-          <TabsTrigger value="roles">Rôles et permissions</TabsTrigger>
-        </TabsList>
+        
 
         {/* Users Tab */}
         <TabsContent value="users" className="space-y-6">

@@ -1,7 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Mail\FourriereNotificationMail;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\Vehicle\StoreVehicleRequest;
 use App\Http\Requests\Vehicle\UpdateVehicleRequest;
 use App\Http\Resources\PaymentResource;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class VehicleController extends Controller
+   
 {
     /**
      * @OA\Get(
@@ -74,6 +76,28 @@ class VehicleController extends Controller
         $vehicles = $query->latest()->paginate($perPage);
         
         return VehicleResource::collection($vehicles);
+    }
+
+      public function notifyOwner(Request $request, $id)
+    {
+        $request->validate([
+            'method' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+            'license_plate' => 'required|string',
+            'description' => 'nullable|string',
+        ]);
+
+        if (in_array($request->method, ['email', 'both'])) {
+            \Mail::to($request->email)->send(new FourriereNotificationMail([
+                'license_plate' => $request->license_plate,
+                'description' => $request->description,
+            ]));
+        }
+
+        // Tu peux simuler l'envoi SMS ici si besoin
+
+        return response()->json(['success' => true]);
     }
 
     /**

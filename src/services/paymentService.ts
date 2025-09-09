@@ -93,21 +93,13 @@ const paymentService = {
     } catch (error) {
       console.log('Generating receipt locally due to API error:', error);
   const payment = await paymentService.getPublicPayment(id);
-      if (!payment.receipt_number) {
-        payment.receipt_number = payment.reference_number || `PMT-${Date.now()}`;
-      }
+      
       const vehicleResponse = await api.get(`/vehicles/${payment.vehicle_id}`);
       const vehicle = vehicleResponse.data.data;
       const feeResponse = await api.get(`/vehicles/${payment.vehicle_id}/storage-fee`);
       const feeData = feeResponse.data;
-      const { generateReceiptPDF } = await import('@/utils/receiptGenerator');
-      const pdfUrl = await generateReceiptPDF({
-        payment,
-        vehicle,
-        daysCount: feeData.days,
-        dailyRate: feeData.daily_rate
-      });
-      return { receipt_url: pdfUrl };
+     
+    
     }
   },
   

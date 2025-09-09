@@ -332,7 +332,7 @@ export const VehicleFormPage = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Raison/Infraction commise (optionnelle)</Label>
+              <Label htmlFor="description">Raison/Infraction commise</Label>
               <Textarea
                 id="description"
                 placeholder="État du véhicule, dommages observés, etc."

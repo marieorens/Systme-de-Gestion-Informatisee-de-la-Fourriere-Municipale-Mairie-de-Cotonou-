@@ -15,7 +15,6 @@ import { VehicleFormPage } from "@/pages/VehicleFormPage";
 import { VehicleDetailPage } from "@/pages/VehicleDetailPage";
 import { VehicleNotifyPage } from "@/pages/VehicleNotifyPage";
 import { OwnersPage } from "@/pages/OwnersPage";
-import { PaymentSuccessPage } from "@/pages/PaymentSuccessPage";
 import { ProceduresPage } from "@/pages/ProceduresPage";
 import { ProcedureFormPage } from "@/pages/ProcedureFormPage";
 import { ProcedureDetailPage } from "@/pages/ProcedureDetailPage";
@@ -39,7 +38,6 @@ const App = () => (
           {/* Public routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/vehicule-lookup" element={<VehicleLookupPage />} />
-          <Route path="/paiement/confirmation" element={<PaymentSuccessPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={
             <ProtectedRoute>

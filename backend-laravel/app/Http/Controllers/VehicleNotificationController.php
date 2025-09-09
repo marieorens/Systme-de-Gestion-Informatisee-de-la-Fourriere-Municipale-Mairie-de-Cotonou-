@@ -45,14 +45,12 @@ class VehicleNotificationController extends Controller
                 ], 422);
             }
 
-            // Envoi SMS (à implémenter avec Twilio ou autre service)
             if (in_array($request->method, ['sms', 'both'])) {
                 Log::info('Tentative d\'envoi de SMS', [
                     'phone' => $request->phone,
                     'vehicle_id' => $vehicle->id
                 ]);
 
-                // Exemple Twilio :
                 /*
                 \Twilio::message(
                     $request->phone,
@@ -62,12 +60,13 @@ class VehicleNotificationController extends Controller
                 */
             }
 
-            // Envoi Email avec notifications Laravel
             if (in_array($request->method, ['email', 'both'])) {
+
                 Log::info('Tentative d\'envoi d\'email', [
                     'email' => $request->email,
                     'vehicle_id' => $vehicle->id,
-                    'license_plate' => $vehicle->license_plate
+                    'license_plate' => $vehicle->license_plate,
+                    'vehicle_type' => $vehicle->type
                 ]);
 
                 Notification::route('mail', $request->email)

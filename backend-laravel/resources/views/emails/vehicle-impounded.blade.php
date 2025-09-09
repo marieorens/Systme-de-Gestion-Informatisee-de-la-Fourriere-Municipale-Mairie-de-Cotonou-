@@ -19,7 +19,7 @@ Nous vous informons que votre véhicule immatriculé **{{ $vehicle->plate_number
 2. Des frais de fourrière seront applicables selon la durée de garde.
 
 Pour toute information complémentaire, veuillez nous contacter au :
-- Téléphone : +229 XX XX XX XX
+- Téléphone : +229 21 30 30 30
 - Email : contact@fourriere-municipale.bj
 
 Cordialement,

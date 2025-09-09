@@ -62,7 +62,7 @@ const adminItems = [
   {
     title: 'Utilisateurs',
     url: '/app/admin/utilisateurs',
-    icon: Shield,
+    icon: Users,
     roles: ['admin'],
   },
   {

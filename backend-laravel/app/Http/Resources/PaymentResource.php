@@ -36,16 +36,18 @@ class PaymentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'procedure_id' => $this->procedure_id,
+            'vehicle_id' => $this->vehicle_id,
             'amount' => $this->amount,
             'payment_method' => $this->payment_method,
             'status' => $this->status,
             'reference' => $this->reference,
-            'paid_at' => $this->paid_at,
+            'receipt_url' => $this->receipt_url,
+            'payment_date' => $this->payment_date,
+            'description' => $this->description,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'procedure' => new ProcedureResource($this->whenLoaded('procedure')),
-            'processed_by' => new UserResource($this->whenLoaded('processor')),
+            'vehicle' => new VehicleResource($this->whenLoaded('vehicle')),
+            'user' => new UserResource($this->whenLoaded('user')),
         ];
     }
 }

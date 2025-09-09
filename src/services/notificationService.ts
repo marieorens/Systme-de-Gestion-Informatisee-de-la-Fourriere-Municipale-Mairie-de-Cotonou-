@@ -50,8 +50,20 @@ const notificationService = {
   },
 
   /**
-   * Get unread notification count
+   * Notify a vehicle owner (SMS/email/both)
    */
+  notifyVehicle: async (
+    vehicleId: string,
+    data: {
+      method: 'sms' | 'email' | 'both',
+      phone?: string,
+      email?: string,
+      license_plate: string
+    }
+  ): Promise<{ message: string }> => {
+    const response = await api.post(`/vehicles/${vehicleId}/notify`, data);
+    return response.data as { message: string };
+  },
   getUnreadCount: async (): Promise<{ count: number }> => {
     const response = await api.get('/notifications/unread-count');
     return response.data;

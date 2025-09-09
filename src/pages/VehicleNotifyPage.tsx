@@ -23,19 +23,16 @@ export const VehicleNotifyPage = () => {
   const location = useLocation();
   const { licensePlate } = location.state || {};
 
-  // Simuler la recherche des informations du propriétaire via l'API ANATT
   const lookupOwnerInfo = async () => {
     setIsLoading(true);
     try {
-      // Simulation d'un appel API à l'ANATT
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Données simulées
       setOwnerInfo({
-        phone: '+229 97000000',
+        phone: '+229 43126928',
         email: 'proprietaire@example.com',
-        first_name: 'John',
-        last_name: 'Doe'
+        first_name: 'Henri',
+        last_name: 'DOMINGO'
       });
 
     } catch (error) {
@@ -54,7 +51,7 @@ export const VehicleNotifyPage = () => {
 
     setIsSending(true);
     try {
-      const response = await axios.post(`/api/vehicles/${id}/notify`, {
+  const response = await axios.post(`http://127.0.0.1:8000/api/vehicles/${id}/notify`, {
         method,
         phone: ownerInfo.phone,
         email: ownerInfo.email,
@@ -66,7 +63,6 @@ export const VehicleNotifyPage = () => {
         description: 'Notification envoyée avec succès',
       });
 
-      // Rediriger vers la page de détails du véhicule
       navigate(`/app/vehicules/${id}`);
 
     } catch (error) {
@@ -109,7 +105,7 @@ export const VehicleNotifyPage = () => {
                     <AlertCircle className="h-12 w-12 text-blue-500" />
                     <p className="text-center text-sm text-muted-foreground max-w-sm">
                       Cliquez sur le bouton ci-dessous pour rechercher les informations du propriétaire 
-                      via l'API ANATT
+                      via les données de l'ANATT
                     </p>
                     <div className="flex gap-4">
                       <Button onClick={lookupOwnerInfo}>

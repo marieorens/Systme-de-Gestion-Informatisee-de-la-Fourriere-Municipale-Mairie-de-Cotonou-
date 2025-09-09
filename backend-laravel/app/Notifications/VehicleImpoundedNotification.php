@@ -26,51 +26,38 @@ class VehicleImpoundedNotification extends Notification
 
     public function toMail($notifiable)
     {
-        $dailyFee = $this->getDailyStorageFee($this->vehicle->type);
-        $removalFee = $this->getRemovalFee($this->vehicle->type);
+        $tableHtml = '<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%;font-size:14px;">'
+            . '<thead style="background:#f5f5f5;">'
+            . '<tr>'
+            . '<th>Type de véhicule</th>'
+            . '<th>Frais d\'enlèvement</th>'
+            . '<th>Frais de garde journalière</th>'
+            . '</tr>'
+            . '</thead>'
+            . '<tbody>'
+            . '<tr><td>Deux-roues motorisés</td><td>5 000 FCFA</td><td>2 000 FCFA</td></tr>'
+            . '<tr><td>Tricycles</td><td>10 000 FCFA</td><td>3 000 FCFA</td></tr>'
+            . '<tr><td>Véhicule de 4 à 12 places</td><td>30 000 FCFA</td><td>5 000 FCFA</td></tr>'
+            . '<tr><td>Véhicule de 13 à 30 places</td><td>50 000 FCFA</td><td>10 000 FCFA</td></tr>'
+            . '<tr><td>Véhicule à partir de 31 places</td><td>80 000 FCFA</td><td>15 000 FCFA</td></tr>'
+            . '<tr><td>Camion inférieur à 5 tonnes</td><td>50 000 FCFA</td><td>10 000 FCFA</td></tr>'
+            . '<tr><td>Camion de 5 à 10 tonnes</td><td>120 000 FCFA</td><td>15 000 FCFA</td></tr>'
+            . '<tr><td>Camion supérieur à 10 tonnes</td><td>150 000 FCFA</td><td>20 000 FCFA</td></tr>'
+            . '</tbody></table>';
 
         return (new MailMessage)
             ->subject('Votre véhicule a été mis en fourrière')
             ->greeting('Bonjour,')
-            ->line("Nous vous informons que votre véhicule immatriculé {$this->vehicle->license_plate} a été mis en fourrière municipale de Cotonou.")
-            ->line("Frais d'enlèvement : " . number_format($removalFee, 0, ',', ' ') . ' FCFA')
-            ->line("Frais de garde journalière : " . number_format($dailyFee, 0, ',', ' ') . ' FCFA')
-            ->line('Pour récupérer votre véhicule, veuillez vous présenter à la mairie de Cotonou avec les documents suivants:')
+            ->line("Nous vous informons que votre véhicule immatriculé {$this->vehicle->license_plate} a été mis en fourrière municipale de Cotonou en ce jour.")
+            ->line("Voici la grille officielle des frais de fourrière :")
+            ->line(new \Illuminate\Support\HtmlString($tableHtml))
+            ->line(' ')
+            ->line('Pour récupérer votre véhicule, veuillez vous présenter à la fourrière avec les documents suivants :')
             ->line('- Une pièce d\'identité valide')
             ->line('- La carte grise du véhicule')
-            ->line('- Le reçu de paiement des frais de fourrière')
+            ->line('- La quittance de paiement des frais de fourrière à retirer [ici](http://localhost:8080/vehicule-lookup)')
             ->action('Plus d\'informations', url('/'))
-            ->line('Pour plus d\'informations, contactez-nous au +229 XX XX XX XX')
+            ->line('Pour plus d\'informations, contactez-nous au +229 21 30 31 32 ')
             ->salutation('Cordialement, La Mairie de Cotonou');
-    }
-
-    protected function getDailyStorageFee(string $type): int
-    {
-        return match ($type) {
-            'MOTORCYCLE' => 2000,
-            'TRICYCLE' => 3000,
-            'SMALL_VEHICLE' => 5000,
-            'MEDIUM_VEHICLE' => 10000,
-            'LARGE_VEHICLE' => 15000,
-            'SMALL_TRUCK' => 10000,
-            'MEDIUM_TRUCK' => 15000,
-            'LARGE_TRUCK' => 20000,
-            default => 5000,
-        };
-    }
-
-    protected function getRemovalFee(string $type): int
-    {
-        return match ($type) {
-            'MOTORCYCLE' => 5000,
-            'TRICYCLE' => 10000,
-            'SMALL_VEHICLE' => 30000,
-            'MEDIUM_VEHICLE' => 50000,
-            'LARGE_VEHICLE' => 80000,
-            'SMALL_TRUCK' => 50000,
-            'MEDIUM_TRUCK' => 120000,
-            'LARGE_TRUCK' => 150000,
-            default => 30000,
-        };
     }
 }

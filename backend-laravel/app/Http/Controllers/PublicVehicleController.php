@@ -17,6 +17,7 @@ class PublicVehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
+
     public function publicUpdate(Request $request, $id)
     {
         $vehicle = Vehicle::find($id);
@@ -73,6 +74,7 @@ class PublicVehicleController extends Controller
         return new VehicleResource($vehicle);
     }
 
+    
     /**
      * Update vehicle status by license plate.
      *

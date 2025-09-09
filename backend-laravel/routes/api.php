@@ -34,9 +34,7 @@ Route::prefix('public')->group(function () {
     Route::get('payments/{id}', [PaymentController::class, 'publicShow']);
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('vehicles/{id}/notify', [VehicleNotificationController::class, 'notify']);
-});
+Route::post('vehicles/{id}/notify', [VehicleNotificationController::class, 'notify']);
 
 Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
@@ -54,7 +52,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('vehicles/{id}/qr-code', [VehicleController::class, 'getQrCode']);
     Route::get('vehicles/{vehicle}/storage-fee', [VehicleController::class, 'calculateStorageFee']);
     Route::get('vehicles/{vehicle}/payments', [VehicleController::class, 'getPayments']);
-    Route::post('vehicles/{vehicle}/notify', [VehicleNotificationController::class, 'notify']);
 
     // Owners
     Route::apiResource('owners', OwnerController::class);
